@@ -1,0 +1,44 @@
+@font-face {
+  font-family: Inter-Bold;
+  src: url("/fonts/Inter-Bold.woff2") format("truetype");
+}
+
+@font-face {
+  font-family: Inter-Medium;
+  src: url("/fonts/Inter-Medium.woff2") format("truetype");
+}
+
+@font-face {
+  font-family: Inter-Regular;
+  src: url("/fonts/Inter-Regular.woff2") format("truetype");
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #131313;
+  font-family: Inter-Medium, sans-serif;
+  font-size: 16px;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family:
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Courier New",
+    monospace;
+}
+
+* {
+  box-sizing: border-box;
+}

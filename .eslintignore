@@ -1,0 +1,25 @@
+# Extensions
+*.css
+*.snap
+*.yaml
+*.yml
+*.svg
+
+# Directories
+public/**
+.github/**
+.husky/**
+.vercel/**
+
+# Files
+.cz.json
+.eslintignore
+.eslintrc.json
+cypress.json
+index.html
+LICENSE
+package.json
+tsconfig.json
+tsconfig.node.json
+vercel.json
+README.md
