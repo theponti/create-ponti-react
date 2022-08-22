@@ -1,9 +1,10 @@
 # Extensions
 *.css
+*.scss
 *.snap
+*.svg
 *.yaml
 *.yml
-*.svg
 
 # Directories
 public/**
