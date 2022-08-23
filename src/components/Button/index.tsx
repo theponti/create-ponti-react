@@ -16,6 +16,9 @@ function Button({
     case 'danger':
       buttonStyle = styles.btnDanger;
       break;
+    case 'text':
+      buttonStyle = styles.btnText;
+      break;
     default:
       buttonStyle = '';
   }
@@ -34,7 +37,7 @@ function Button({
 
 Button.defaultProps = {
   className: '',
-  variant: 'sucess',
+  variant: 'success',
 };
 
 type ButtonType = {

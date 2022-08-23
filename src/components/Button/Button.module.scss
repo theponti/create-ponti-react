@@ -1,12 +1,13 @@
+$black: rgb(0 0 0);
 $white: rgb(255 255 255);
 
 .container {
   min-height: 30px;
   border-radius: 10px;
   border: 0;
-  padding: 8px 16px;
+  padding: 12px 16px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   color: rgb(255 255 255);
   background-color: rgb(0 133 255);
 
@@ -24,4 +25,9 @@ $white: rgb(255 255 255);
 .btnSuccess {
   color: $white;
   background-color: #2ea44e;
+}
+
+.btnText {
+  color: $black;
+  background: none;
 }

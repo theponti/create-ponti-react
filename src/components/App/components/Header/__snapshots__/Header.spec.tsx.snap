@@ -3,27 +3,29 @@
 exports[`<Header/> > should render authenticated header 1`] = `
 <div>
   <header
-    class="_header_q598i_1"
+    class="_header_vbv1y_1"
   >
-    <div>
+    <div
+      class="_rightNav_vbv1y_23"
+    >
       <a
-        class="_appName_q598i_9"
+        class="_appName_vbv1y_9"
         href="/ideas"
       >
         Ponti UI
       </a>
     </div>
     <div
-      class="_leftNav_q598i_22"
+      class="_leftNav_vbv1y_22"
     >
       <a
-        class="_menuItem_q598i_27"
+        class="_menuItem_vbv1y_28"
         href="/account"
       >
         Account
       </a>
       <button
-        class="_container_1pont_1 _menuItem_q598i_27"
+        class="_container_7jj5b_1 _menuItem_vbv1y_28 _btnSuccess_7jj5b_21"
         data-testid="button"
         type="button"
       >
@@ -37,28 +39,30 @@ exports[`<Header/> > should render authenticated header 1`] = `
 exports[`<Header/> > should render unauthenticated header 1`] = `
 <div>
   <header
-    class="_header_q598i_1"
+    class="_header_vbv1y_1"
   >
-    <div>
+    <div
+      class="_rightNav_vbv1y_23"
+    >
       <a
-        class="_appName_q598i_9"
+        class="_appName_vbv1y_9"
         href="/ideas"
       >
         Ponti UI
       </a>
     </div>
     <div
-      class="_leftNav_q598i_22"
+      class="_leftNav_vbv1y_22"
     >
       <button
-        class="_container_1pont_1 _menuItem_q598i_27"
+        class="_container_7jj5b_1 _menuItem_vbv1y_28 _btnText_7jj5b_26"
         data-testid="button"
         type="button"
       >
         Log In
       </button>
       <button
-        class="_container_1pont_1  css-rduvsv"
+        class="_container_7jj5b_1 _btnSuccess_7jj5b_21"
         data-testid="button"
         type="button"
       >
