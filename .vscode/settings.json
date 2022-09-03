@@ -7,7 +7,6 @@
     "source.organizeImports"
   ],
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "editor.foldingImportsByDefault": true,
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "eslint.packageManager": "yarn",
