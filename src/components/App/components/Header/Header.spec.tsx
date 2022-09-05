@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-handler-names */
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import {
@@ -5,32 +6,24 @@ import {
 } from 'vitest';
 import Header from './Header';
 
-let isAuthenticated: boolean;
-
-vi.mock('@auth0/auth0-react', () => ({
-  useAuth0: vi.fn(() => ({ isAuthenticated })),
-}));
-
 describe('<Header/>', () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
   it('should render unauthenticated header', () => {
-    isAuthenticated = false;
     const { container } = render(
       <BrowserRouter>
-        <Header />
+        <Header isAuthenticated={false} onLogin={() => {}} />
       </BrowserRouter>,
     );
     expect(container).toMatchSnapshot();
   });
 
   it('should render authenticated header', () => {
-    isAuthenticated = true;
     const { container } = render(
       <BrowserRouter>
-        <Header />
+        <Header isAuthenticated onLogin={() => {}} />
       </BrowserRouter>,
     );
     expect(container).toMatchSnapshot();
