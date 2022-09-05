@@ -17,7 +17,7 @@ specifiers:
   '@testing-library/cypress': 8.0.3
   '@testing-library/dom': 8.17.1
   '@testing-library/jest-dom': 5.16.5
-  '@testing-library/react': 12.1.4
+  '@testing-library/react': 12.1.5
   '@testing-library/react-hooks': 8.0.1
   '@testing-library/user-event': 14.4.3
   '@types/css-mediaquery': 0.1.1
@@ -90,7 +90,7 @@ dependencies:
   '@mui/icons-material': 5.8.4_6zj6y45pk7yzknq6kbrbttvsae
   '@mui/material': 5.10.1_q3d4oydlrbwptu2sr4ireah4hq
   '@reduxjs/toolkit': 1.8.5_dpy7deqfnlqf5x6um35khxakkq
-  '@testing-library/react': 12.1.4_q3ro2d4tisdm4fljj6b5phevaq
+  '@testing-library/react': 12.1.5_q3ro2d4tisdm4fljj6b5phevaq
   axios: 0.27.2
   classname: 0.0.0
   classnames: 2.3.1
@@ -156,7 +156,7 @@ devDependencies:
   stylelint-config-standard: 27.0.0_stylelint@14.10.0
   typescript: 4.7.4
   vite: 3.0.6_sass@1.54.5
-  vite-plugin-pwa: 0.12.3_vite@3.0.6
+  vite-plugin-pwa: 0.12.3_luw4pyb2o7shkzms3pgs6jpvqq
   vite-tsconfig-paths: 3.5.0_vite@3.0.6
   whatwg-fetch: 3.6.2
   workbox-build: 6.5.4
@@ -1441,7 +1441,7 @@ packages:
       '@types/node': 18.7.9
       chalk: 4.1.2
       cosmiconfig: 7.0.1
-      cosmiconfig-typescript-loader: 2.0.2_x2ciz3xvsjwezrs6sivolisayi
+      cosmiconfig-typescript-loader: 2.0.2_jotmv6oardfh26mm42g44gufjm
       lodash: 4.17.21
       resolve-from: 5.0.0
       typescript: 4.7.4
@@ -2277,12 +2277,12 @@ packages:
       react-error-boundary: 3.1.4_react@17.0.0
     dev: true
 
-  /@testing-library/react/12.1.4_q3ro2d4tisdm4fljj6b5phevaq:
-    resolution: {integrity: sha512-jiPKOm7vyUw311Hn/HlNQ9P8/lHNtArAx0PisXyFixDDvfl8DbD6EUdbshK5eqauvBSvzZd19itqQ9j3nferJA==}
+  /@testing-library/react/12.1.5_q3ro2d4tisdm4fljj6b5phevaq:
+    resolution: {integrity: sha512-OfTXCJUFgjd/digLUuPxa0+/3ZxsQmE7ub9kcbW/wi96Bh3o/p5vrETcBGfP17NWPGqeYYl5LTRpwyGoMC4ysg==}
     engines: {node: '>=12'}
     peerDependencies:
-      react: '*'
-      react-dom: '*'
+      react: <18.0.0
+      react-dom: <18.0.0
     dependencies:
       '@babel/runtime': 7.18.9
       '@testing-library/dom': 8.17.1
@@ -2355,7 +2355,7 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.4.6
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
     dev: true
 
   /@types/eslint/8.4.6:
@@ -3748,11 +3748,12 @@ packages:
     resolution: {integrity: sha512-3lqz5YjWTYnW6dlDa5TLaTCcShfar1e40rmcJVwCBJC6mWlFuj0eCHIElmG1g5kyuJ/GD+8Wn4FFCcz4gJPfaQ==}
     dev: true
 
-  /cosmiconfig-typescript-loader/2.0.2_x2ciz3xvsjwezrs6sivolisayi:
+  /cosmiconfig-typescript-loader/2.0.2_jotmv6oardfh26mm42g44gufjm:
     resolution: {integrity: sha512-KmE+bMjWMXJbkWCeY4FJX/npHuZPNr9XF9q9CIQ/bpFwi1qHfCmSiKarrCcRa0LO4fWjk93pVoeRtJAkTGcYNw==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
       '@types/node': '*'
+      cosmiconfig: '>=7'
       typescript: '>=3'
     dependencies:
       '@types/node': 18.7.9
@@ -8584,10 +8585,12 @@ packages:
       extsprintf: 1.3.0
     dev: true
 
-  /vite-plugin-pwa/0.12.3_vite@3.0.6:
+  /vite-plugin-pwa/0.12.3_luw4pyb2o7shkzms3pgs6jpvqq:
     resolution: {integrity: sha512-gmYdIVXpmBuNjzbJFPZFzxWYrX4lHqwMAlOtjmXBbxApiHjx9QPXKQPJjSpeTeosLKvVbNcKSAAhfxMda0QVNQ==}
     peerDependencies:
       vite: ^2.0.0 || ^3.0.0-0
+      workbox-build: ^6.4.0
+      workbox-window: ^6.4.0
     dependencies:
       debug: 4.3.4
       fast-glob: 3.2.11
@@ -8597,7 +8600,6 @@ packages:
       workbox-build: 6.5.4
       workbox-window: 6.5.4
     transitivePeerDependencies:
-      - '@types/babel__core'
       - supports-color
     dev: true
 
