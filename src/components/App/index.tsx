@@ -28,8 +28,8 @@ function App() {
       <Header isAuthenticated={isAuthenticated} onLogin={onLogin} />
       <Grid className={styles.wrap}>
         <Routes>
-          <Route path="/account" element={<Profile />} />
-          <Route path="/" element={<Home />} />
+          <Route index element={<Home />} />
+          <Route path="account" element={<Profile />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Grid>

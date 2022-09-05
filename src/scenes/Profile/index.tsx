@@ -1,8 +1,15 @@
 import { useAuth0 } from '@auth0/auth0-react';
+import { Navigate } from 'react-router-dom';
+
 import Button from 'components/Button';
 
 function Profile() {
   const { user, logout } = useAuth0();
+
+  if (!user) {
+    return <Navigate to="/" />;
+  }
+
   const {
     email,
     email_verified: emailVerified,
