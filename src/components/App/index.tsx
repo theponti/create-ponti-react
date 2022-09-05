@@ -24,7 +24,7 @@ function App() {
   }
 
   return (
-    <div data-testid="app-container" id="app" className="d-flex flex-column h-100">
+    <div data-testid="app-container">
       <Header isAuthenticated={isAuthenticated} onLogin={onLogin} />
       <Grid className={styles.wrap}>
         <Routes>
