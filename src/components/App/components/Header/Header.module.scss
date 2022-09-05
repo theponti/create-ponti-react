@@ -27,7 +27,19 @@
 }
 
 .menuItem {
-    font-weight: 600;
-    display: inline-block;
-    margin: 0 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
+  height: 40px;
+  margin: 0 1rem;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: black;
+
+  &:hover,
+  &:focus {
+    background-color: rgb(225, 225, 225);
+  }
 }
