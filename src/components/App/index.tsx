@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import Loading from 'scenes/Loading';
 
+import Account from 'scenes/Account';
 import Home from 'scenes/Home';
 import NotFound from 'scenes/NotFound';
-import Profile from 'scenes/Profile';
 import { authSelectors, RootState } from 'services/store';
 
 import styles from './App.module.css';
@@ -29,7 +29,7 @@ function App() {
       <Grid className={styles.wrap}>
         <Routes>
           <Route index element={<Home />} />
-          <Route path="account" element={<Profile />} />
+          <Route path="account" element={<Account />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Grid>
@@ -41,6 +41,4 @@ const mapStateToProps = (state: RootState) => ({
   user: authSelectors.getUser(state),
 });
 
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

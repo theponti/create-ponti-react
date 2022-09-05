@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 
 import Button from 'components/Button';
 
-function Profile() {
+function Account() {
   const { user, logout } = useAuth0();
 
   if (!user) {
@@ -41,4 +41,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Account;
