@@ -17,7 +17,7 @@ specifiers:
   '@testing-library/cypress': 8.0.3
   '@testing-library/dom': 8.17.1
   '@testing-library/jest-dom': 5.16.5
-  '@testing-library/react': 12.1.4
+  '@testing-library/react': 12.1.5
   '@testing-library/react-hooks': 8.0.1
   '@testing-library/user-event': 14.4.3
   '@types/css-mediaquery': 0.1.1
@@ -90,7 +90,7 @@ dependencies:
   '@mui/icons-material': 5.8.4_g2pz2rnqz6q34rx3qj4akn56ru
   '@mui/material': 5.10.1_2b47eoufsbnq6wrflgg4d2kbx4
   '@reduxjs/toolkit': 1.8.5_thunyjspsylz6iliyoygaytnnq
-  '@testing-library/react': 12.1.4_sfoxds7t5ydpegc3knd667wn6m
+  '@testing-library/react': 12.1.5_sfoxds7t5ydpegc3knd667wn6m
   axios: 0.27.2
   classname: 0.0.0
   classnames: 2.3.1
@@ -2277,12 +2277,12 @@ packages:
       react-error-boundary: 3.1.4_react@17.0.2
     dev: true
 
-  /@testing-library/react/12.1.4_sfoxds7t5ydpegc3knd667wn6m:
-    resolution: {integrity: sha512-jiPKOm7vyUw311Hn/HlNQ9P8/lHNtArAx0PisXyFixDDvfl8DbD6EUdbshK5eqauvBSvzZd19itqQ9j3nferJA==}
+  /@testing-library/react/12.1.5_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-OfTXCJUFgjd/digLUuPxa0+/3ZxsQmE7ub9kcbW/wi96Bh3o/p5vrETcBGfP17NWPGqeYYl5LTRpwyGoMC4ysg==}
     engines: {node: '>=12'}
     peerDependencies:
-      react: '*'
-      react-dom: '*'
+      react: <18.0.0
+      react-dom: <18.0.0
     dependencies:
       '@babel/runtime': 7.18.9
       '@testing-library/dom': 8.17.1
