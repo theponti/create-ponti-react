@@ -1,5 +1,12 @@
 import cx from 'classnames';
+
 import styles from './Button.module.scss';
+
+enum VARIANTS {
+  DANGER = 'danger',
+  SUCCESS = 'success',
+  TEXT = 'text',
+}
 
 function Button({
   children,
@@ -10,13 +17,13 @@ function Button({
   let buttonStyle;
 
   switch (variant) {
-    case 'success':
+    case VARIANTS.SUCCESS:
       buttonStyle = styles.btnSuccess;
       break;
-    case 'danger':
+    case VARIANTS.DANGER:
       buttonStyle = styles.btnDanger;
       break;
-    case 'text':
+    case VARIANTS.TEXT:
       buttonStyle = styles.btnText;
       break;
     default:
@@ -37,14 +44,14 @@ function Button({
 
 Button.defaultProps = {
   className: '',
-  variant: 'success',
+  variant: VARIANTS.SUCCESS,
 };
 
 type ButtonType = {
   children: React.ReactNode;
   className?: string;
   onClick: () => void;
-  variant?: string;
+  variant?: 'danger' | 'success' | 'text';
 };
 
 export default Button;
