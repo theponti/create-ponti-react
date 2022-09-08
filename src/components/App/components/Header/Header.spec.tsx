@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-handler-names */
 import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import TestWrapper from 'testUtils/TestWrapper';
 import {
   beforeEach, describe, expect, it, vi,
 } from 'vitest';
@@ -13,18 +13,18 @@ describe('<Header/>', () => {
 
   it('should render unauthenticated header', () => {
     const { container } = render(
-      <BrowserRouter>
-        <Header isAuthenticated={false} onLogin={() => {}} />
-      </BrowserRouter>,
+      <TestWrapper>
+        <Header isAuthenticated={false} onLogin={vi.fn()} />
+      </TestWrapper>,
     );
     expect(container).toMatchSnapshot();
   });
 
   it('should render authenticated header', () => {
     const { container } = render(
-      <BrowserRouter>
-        <Header isAuthenticated onLogin={() => {}} />
-      </BrowserRouter>,
+      <TestWrapper>
+        <Header isAuthenticated onLogin={vi.fn()} />
+      </TestWrapper>,
     );
     expect(container).toMatchSnapshot();
   });

@@ -7,8 +7,14 @@ import Button from '.';
 describe('<Button/>', () => {
   it('should render component', () => {
     const onClick = vi.fn();
-    const { getByTestId } = render(<Button onClick={onClick}>Button</Button>);
-    expect(getByTestId('button')).toMatchSnapshot();
+    const { container } = render(<Button onClick={onClick}>Button</Button>);
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should render a text button', () => {
+    const onClick = vi.fn();
+    const { container } = render(<Button variant="text" onClick={onClick}>Button</Button>);
+    expect(container).toMatchSnapshot();
   });
 
   it('should render a success button', () => {

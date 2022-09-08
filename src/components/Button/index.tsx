@@ -27,7 +27,6 @@ function Button({
       buttonStyle = styles.btnText;
       break;
     default:
-      buttonStyle = '';
   }
 
   return (
