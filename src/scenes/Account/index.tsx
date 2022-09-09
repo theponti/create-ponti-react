@@ -2,9 +2,11 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { Navigate } from 'react-router-dom';
 
 import Button from 'components/Button';
+import { useCallback } from 'react';
 
 function Account() {
   const { user, logout } = useAuth0();
+  const onLogoutClick = useCallback(() => logout({ returnTo: window.location.origin }), [logout]);
 
   if (!user) {
     return <Navigate to="/" />;
@@ -17,7 +19,6 @@ function Account() {
     nickname,
     picture,
   } = user || {};
-  const onLogoutClick = logout;
 
   return (
     <div>
