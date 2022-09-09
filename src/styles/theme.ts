@@ -6,20 +6,43 @@ declare module '@emotion/react' {
   export interface Theme {
     appWidth: number;
     palette: {
+      black: string;
       error: {
         main: string;
       };
+      green: {
+        dark: string;
+        main: string;
+        light: string;
+        secondary: string;
+      }
       grey: {
-        100: string;
-        300: string;
-        500: string;
-        700: string;
-        900: string;
+        light100: string;
+        light120: string;
+        light200: string;
+        medium300: string;
+        medium400: string;
+        medium500: string;
+        dark700: string;
+        dark800: string;
+        dark900: string;
       };
+      red: {
+        dark: string;
+        main: string;
+        light: string;
+      };
+      white: string;
     };
     breakpoints: {
       [key: string]: number
     }
+    misc: {
+      focusShadow: string;
+    }
+    shape: {
+      borderRadius: string;
+    };
   }
 }
 
@@ -66,23 +89,23 @@ const pink = {
 };
 
 const grey = {
-  100: '#f8f8fa',
-  120: '#f0f0f2',
-  200: '#d5d5d7',
-  300: '#cdcdce',
-  400: '#acacae',
-  500: '#929294', // DEPRECATED
-  700: '#79797b',
-  800: '#464648',
-  900: '#2d2d2f',
+  light100: '#f3f3f3',
+  light120: '#f0f0f2',
+  light200: '#d5d5d7',
+  medium300: '#cdcdce',
+  medium400: '#acacae',
+  medium500: '#929294',
+  dark700: '#79797b',
+  dark800: '#464648',
+  dark900: '#2d2d2f',
 };
 
 const textColors = {
-  light: grey[500],
-  semiLight: grey[700],
-  main: grey[800],
-  dark: grey[900],
-  disabled: rgba(grey[800], 0.34),
+  light: grey.medium500,
+  semiLight: grey.dark700,
+  main: grey.dark800,
+  dark: grey.dark900,
+  disabled: rgba(grey.dark800, 0.34),
   green: green.dark,
 };
 
@@ -131,8 +154,8 @@ const theme = {
     largeBorderRadius: '8px',
     xLargeBorderRadius: '16px',
     input: {
-      borderColor: grey[300],
-      borderColorDisabled: grey[200],
+      borderColor: grey.medium300,
+      borderColorDisabled: grey.light200,
       borderThickness: '1px',
       medium: {
         height: '43px',

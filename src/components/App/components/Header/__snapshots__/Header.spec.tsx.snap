@@ -48,7 +48,7 @@ exports[`<Header/> > should render unauthenticated header 1`] = `
       class="_leftNav_9ej0w_14"
     >
       <button
-        class="_container_7jj5b_1 _btnText_7jj5b_26"
+        class=" css-hcwumx"
         data-testid="button"
         type="button"
       >

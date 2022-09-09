@@ -3,7 +3,7 @@
 exports[`<Button/> > should render a danger button 1`] = `
 <div>
   <button
-    class="_container_7jj5b_1 _btnDanger_7jj5b_16"
+    class=" css-1397b20"
     data-testid="button"
     type="button"
   >
@@ -15,7 +15,7 @@ exports[`<Button/> > should render a danger button 1`] = `
 exports[`<Button/> > should render a success button 1`] = `
 <div>
   <button
-    class="_container_7jj5b_1 _btnSuccess_7jj5b_21"
+    class=" css-1s1ieio"
     data-testid="button"
     type="button"
   >
@@ -27,19 +27,7 @@ exports[`<Button/> > should render a success button 1`] = `
 exports[`<Button/> > should render a text button 1`] = `
 <div>
   <button
-    class="_container_7jj5b_1 _btnText_7jj5b_26"
-    data-testid="button"
-    type="button"
-  >
-    Button
-  </button>
-</div>
-`;
-
-exports[`<Button/> > should render component 1`] = `
-<div>
-  <button
-    class="_container_7jj5b_1 _btnSuccess_7jj5b_21"
+    class=" css-hcwumx"
     data-testid="button"
     type="button"
   >
