@@ -175,7 +175,6 @@ const theme = {
     },
     iconButton: {
       medium: { size: '36px' },
-      'small-plus': { size: '32px' },
       small: { size: '24px' },
       tiny: { size: '16px' },
     },
