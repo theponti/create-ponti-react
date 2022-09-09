@@ -12,9 +12,13 @@ function Link({ children, className, to }: InferProps<typeof Link.propTypes>) {
   );
 }
 
+Link.defaultProps = {
+  className: '',
+};
+
 Link.propTypes = {
   children: PropTypes.node.isRequired,
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
   to: PropTypes.string.isRequired,
 };
 
