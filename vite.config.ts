@@ -23,10 +23,15 @@ export default defineConfig(({ mode }) => ({
     clearMocks: true,
     coverage: {
       enabled: true,
-      exclude: ['src/setupTests.ts', 'src/testUtils.tsx'],
+      exclude: [
+        'src/services/constants/**',
+        'src/setupTests.ts',
+        'src/styles/**',
+        'src/testUtils.tsx',
+        'src/**/*.spec.tsx',
+      ],
       reporter: ['text', 'lcov'],
       reportsDirectory: 'coverage/jest',
-
       // Thresholds for coverage results
       lines: TEST_THRESHOLD,
       functions: TEST_THRESHOLD,

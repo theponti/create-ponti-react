@@ -1,0 +1,37 @@
+// Vitest Snapshot v1
+
+exports[`<Button/> > should render a danger button 1`] = `
+<div>
+  <button
+    class=" css-1397b20"
+    data-testid="button"
+    type="button"
+  >
+    Button
+  </button>
+</div>
+`;
+
+exports[`<Button/> > should render a success button 1`] = `
+<div>
+  <button
+    class=" css-1s1ieio"
+    data-testid="button"
+    type="button"
+  >
+    Button
+  </button>
+</div>
+`;
+
+exports[`<Button/> > should render a text button 1`] = `
+<div>
+  <button
+    class=" css-hcwumx"
+    data-testid="button"
+    type="button"
+  >
+    Button
+  </button>
+</div>
+`;

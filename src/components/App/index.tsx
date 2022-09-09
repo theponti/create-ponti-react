@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import Grid from '@mui/material/Grid';
+import styled from '@emotion/styled';
 import { connect } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import Loading from 'scenes/Loading';
@@ -9,8 +9,13 @@ import Home from 'scenes/Home';
 import NotFound from 'scenes/NotFound';
 import { authSelectors, RootState } from 'services/store';
 
-import styles from './App.module.css';
 import Header from './components/Header';
+
+const Wrap = styled.div`
+  margin: 24px auto;
+  max-width: ${(props) => props.theme.breakpoints.xLarge}px;
+  display: flex;
+`;
 
 function App() {
   const {
@@ -26,13 +31,13 @@ function App() {
   return (
     <div data-testid="app-container">
       <Header isAuthenticated={isAuthenticated} onLogin={onLogin} />
-      <Grid className={styles.wrap}>
+      <Wrap>
         <Routes>
           <Route index element={<Home />} />
           <Route path="account" element={<Account />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </Grid>
+      </Wrap>
     </div>
   );
 }

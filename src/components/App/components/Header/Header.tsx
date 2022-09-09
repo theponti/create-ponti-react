@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import PropTypes, { InferProps } from 'prop-types';
 
 import Button from 'components/Button';
@@ -6,9 +7,18 @@ import { APP_NAME, ROUTES } from 'services/constants';
 
 import styles from './Header.module.scss';
 
+const Wrap = styled.header`
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: ${(props) => props.theme.breakpoints.xLarge}px;
+  padding: 16px 0;
+`;
+
 function Header({ isAuthenticated, onLogin }: InferProps<typeof Header.propTypes>) {
   return (
-    <header className={styles.header}>
+    <Wrap>
       <div className={styles.rightNav}>
         <Link to="/" className={styles.appName}>
           {APP_NAME}
@@ -25,7 +35,7 @@ function Header({ isAuthenticated, onLogin }: InferProps<typeof Header.propTypes
           </Button>
         )}
       </div>
-    </header>
+    </Wrap>
   );
 }
 
