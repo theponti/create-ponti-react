@@ -1,6 +1,7 @@
 /// <reference types="vitest" />
 import eslintPlugin from '@nabla/vite-plugin-eslint';
 import react from '@vitejs/plugin-react';
+import path from 'path';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import tsconfigPaths from 'vite-tsconfig-paths';
@@ -14,6 +15,18 @@ const TEST_THRESHOLD = Number(process.env.TEST_THRESHOLD) || TestOptions.TEST_TH
 export default defineConfig(({ mode }) => ({
   build: {
     outDir: 'build',
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "@/styles/global.scss";',
+      },
+    },
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
   },
   test: {
     include: ['src/**/*.spec.ts', 'src/**/*.spec.tsx'],

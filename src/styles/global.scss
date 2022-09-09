@@ -1,0 +1,243 @@
+$black: #11121b;
+
+$blue_dark: #003fc4;
+$blue_extraLight: #e4ecff;
+$blue_light: #2f70ff;
+$blue_main: #1565ea;
+$blue_transparent: rgba(228, 236, 255, 0.5);
+
+$red_dark: #bf1f02;
+$red_main: #e54528;
+$red_light: #fce9e5;
+
+$orange_dark: #b38000;
+$orange_main: #ffcc34;
+$orange_light: #fff7e6;
+
+$green_dark: #147D11;
+$green_main: #56bf53;
+$green_light: #ecf9ec;
+$green_secondary: #54bd51;
+
+$purple_main: #5f4bb6;
+$purple_light: #efedf8;
+
+$pink_dark: #e8465f;
+$pink_main: #f3abbb;
+$pink_light: #fdf2f7;
+$pink_secondary: #f2a8cb;
+
+$grey_light100: #f3f3f3;
+$grey_light120: #f0f0f2;
+$grey_light200: #d5d5d7;
+$grey_medium300: #cdcdce;
+$grey_medium400: #acacae;
+$grey_medium500: #929294;
+$grey_dark700: #79797b;
+$grey_dark800: #464648;
+$grey_dark900: #2d2d2f;
+
+$text_light: $grey_medium500;
+$text_semiLight: $grey_dark700;
+$text_main: $grey_dark800;
+$text_dark: $grey_dark900;
+$text_disabled: rgba($grey_dark800, 0.34);
+$text_green: $green_dark;
+
+$primary_contrast: #fff;
+$error_contrast: #fff;
+$warning_contrast: $text_main;
+
+$white: #fff;
+
+$breakpoints_small: 500;
+$breakpoints_medium: 769;
+$breakpoints_large: 993;
+$breakpoints_xLarge: 1200;
+$breakpoints_xxLarge: 1800;
+
+
+$focusShadow: 0 0 0 3px #c0d2fb;
+$focusShadowInset: 0 0 0 3px #c0d2fb inset;
+
+$contentPadding_medium: 32px;
+$contentPadding_large: 48px;
+
+$shape_borderRadius: 4px;
+$shape_largeBorderRadius: 8px;
+$shape_xLargeBorderRadius: 16px;
+
+$shape_input_borderColor: $grey_medium300;
+$shape_input_borderColorDisabled: $grey_light200;
+$shape_input_borderThickness: 1px;
+$shape_input_medium_height: 43px;
+$shape_input_medium_sidePadding: 12px;
+
+$shape_input_large_height: 52px;
+$shape_input_large_sidePadding: 15px;
+
+$button_xLarge_height: 60px;
+$button_large_height: 52px;
+$button_medium_height: 39px;
+$button_small_height: 30px;
+$button_tiny_height: 22px;
+
+
+$iconButton_medium_size: 36px;
+$iconButton_small_size: 24px;
+$iconButton_tiny_size: 16px;
+
+$shadows_subtle: 0px 1px 8px -3px rgba(0, 0, 0, 0.3);
+$shadows_medium: 0px 3px 12px -3px rgba(0, 0, 0, 0.25);
+$shadows_large: 0px 6px 50px 1px rgba(0, 0, 0, 0.25);
+$shadows_cloud: -8px 9px 48px rgba(218, 224, 236, 0.22);
+
+// $text_
+//     fontFamily,
+//     lineHeight,
+//     fontWeightRegular: 400,
+//     fontWeightSemiBold: 600,
+//     fontWeightBold: 700,
+//     fontWeightExtraBold: 800,
+//     @mixin h1: {
+//       fontFamily,
+//       lineHeight,
+//       fontSize: '4.0rem',
+//       fontWeight: 600,
+//       color: textColors.dark,
+//       marginBottom: '2.0rem',
+//     },
+//     h2: {
+//       fontFamily,
+//       lineHeight,
+//       fontSize: '2.8rem',
+//       fontWeight: 600,
+//       color: textColors.dark,
+//       marginBottom: '1.6rem',
+//     },
+//     h3: {
+//       fontFamily,
+//       lineHeight,
+//       fontSize: '2.2rem',
+//       fontWeight: 600,
+//       color: textColors.dark,
+//       marginBottom: '1.6rem',
+//     },
+//     h4: {
+//       fontFamily,
+//       lineHeight,
+//       fontSize: '1.7rem',
+//       fontWeight: 600,
+//       color: textColors.dark,
+//       marginBottom: '1.6rem',
+//     },
+//     h5: {
+//       fontFamily,
+//       lineHeight,
+//       fontSize: '1.5rem',
+//       fontWeight: 600,
+//       color: textColors.dark,
+//       marginBottom: '1.6rem',
+//     },
+//     h6: {
+//       fontFamily,
+//       lineHeight,
+//       fontSize: '1.4rem',
+//       fontWeight: 600,
+//       color: textColors.dark,
+//       marginBottom: '1.2rem',
+//     },
+//     nav: {
+//       fontFamily,
+//       lineHeight,
+//       fontSize: '1.4rem',
+//       fontWeight: 400,
+//       color: textColors.main,
+//     },
+//     label: {
+//       fontFamily,
+//       lineHeight,
+//       fontSize: '1.6rem',
+//       fontWeight: 400,
+//       color: textColors.main,
+//       marginBottom: '1.0rem',
+//     },
+//     label2: {
+//       fontFamily,
+//       lineHeight,
+//       fontSize: '1.4rem',
+//       fontWeight: 400,
+//       color: textColors.main,
+//       marginBottom: '1.0rem',
+//     },
+//     body: {
+//       fontFamily,
+//       fontSize: '1.6rem',
+//       fontWeight: 400,
+//       lineHeight: '1.6',
+//       color: textColors.main,
+//       marginBottom: '1.6rem',
+//     },
+//     body2: {
+//       fontFamily,
+//       fontSize: '1.4rem',
+//       fontWeight: 400,
+//       lineHeight: '1.6',
+//       color: textColors.main,
+//       marginBottom: '1.2rem',
+//     },
+//     body3: {
+//       fontFamily,
+//       fontSize: '1.3rem',
+//       fontWeight: 400,
+//       lineHeight: '1.6',
+//       color: textColors.main,
+//       marginBottom: '1.2rem',
+//     },
+//     // iOS will auto zoom on inputs unless the font size is at least 16px. No auto-zoom
+//     // makes it feel more like a native app, so use 16px for all inputs on mobile. Also,
+//     // don't use rem for buttons either so their font says stays proportional to input.
+//     // It looks bad if the input text is much larger than the button text.
+//     // https://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
+//     button: {
+//       fontFamily,
+//       lineHeight,
+//       fontSize: IS_MOBILE ? '16px' : '1.6rem',
+//       fontWeight: 600,
+//     },
+//     button2: {
+//       fontFamily,
+//       lineHeight,
+//       fontSize: IS_MOBILE ? '14px' : '1.4rem',
+//       fontWeight: 600,
+//     },
+//     input: {
+//       fontFamily,
+//       lineHeight,
+//       fontSize: IS_MOBILE ? '16px' : '1.6rem',
+//       fontWeight: 400,
+//       color: textColors.dark,
+//     },
+//     input2: {
+//       fontFamily,
+//       lineHeight,
+//       fontSize: IS_MOBILE ? '16px' : '1.4rem',
+//       fontWeight: 400,
+//       color: textColors.dark,
+//     },
+//     inputPlaceholder: {
+//       fontFamily,
+//       lineHeight,
+//       fontSize: IS_MOBILE ? '16px' : '1.6rem',
+//       fontWeight: 400,
+//       color: textColors.light,
+//     },
+//     inputPlaceholder2: {
+//       fontFamily,
+//       lineHeight,
+//       fontSize: IS_MOBILE ? '16px' : '1.4rem',
+//       fontWeight: 400,
+//       color: textColors.light,
+//     },
+//   },
+//   unit: 8,
