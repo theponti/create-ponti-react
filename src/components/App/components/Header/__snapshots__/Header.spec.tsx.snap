@@ -9,7 +9,7 @@ exports[`<Header/> > should render authenticated header 1`] = `
       class="_rightNav_9ej0w_15"
     >
       <a
-        class="_wrap_1y6kl_1 _appName_9ej0w_1"
+        class="_wrap_4yjwv_1 _appName_9ej0w_1"
         href="/"
       >
         Ponti UI
@@ -19,7 +19,7 @@ exports[`<Header/> > should render authenticated header 1`] = `
       class="_leftNav_9ej0w_14"
     >
       <a
-        class="_wrap_1y6kl_1 _menuItem_9ej0w_20"
+        class="_wrap_4yjwv_1 _menuItem_9ej0w_20"
         href="/account"
       >
         Account
@@ -38,7 +38,7 @@ exports[`<Header/> > should render unauthenticated header 1`] = `
       class="_rightNav_9ej0w_15"
     >
       <a
-        class="_wrap_1y6kl_1 _appName_9ej0w_1"
+        class="_wrap_4yjwv_1 _appName_9ej0w_1"
         href="/"
       >
         Ponti UI
@@ -48,7 +48,7 @@ exports[`<Header/> > should render unauthenticated header 1`] = `
       class="_leftNav_9ej0w_14"
     >
       <button
-        class=" css-hcwumx"
+        class=" css-8zawn9"
         data-testid="button"
         type="button"
       >
