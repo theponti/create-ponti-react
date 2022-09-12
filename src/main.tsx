@@ -1,44 +1,32 @@
-import { AppState, Auth0Provider } from '@auth0/auth0-react';
 import { ThemeProvider } from '@emotion/react';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import App from 'components/App';
 import { store } from 'services/store';
-import history from 'services/utils/history';
 import theme from 'styles/theme';
 
+import { onAuthStateChanged } from 'firebase/auth';
+import { setUser } from 'services/auth';
+import { auth } from 'services/firebase';
 import './index.css';
 
-const queryClient = new QueryClient();
-const { VITE_AUTH0_CLIENT_ID, VITE_AUTH0_DOMAIN } = import.meta.env;
-
-const onRedirectCallback = (appState?: AppState) => {
-  const returnTo = appState && appState.returnTo;
-  history.push(returnTo || window.location.pathname);
-};
+// Update Redux when Firebase Auth changes
+onAuthStateChanged(auth, (user) => {
+  store.dispatch(setUser(user || undefined));
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <Auth0Provider
-      clientId={VITE_AUTH0_CLIENT_ID}
-      domain={VITE_AUTH0_DOMAIN}
-      onRedirectCallback={onRedirectCallback}
-      redirectUri={window.location.origin}
-    >
-      <Router>
-        <Provider store={store}>
-          <ThemeProvider theme={theme}>
-            <QueryClientProvider client={queryClient}>
-              <App />
-            </QueryClientProvider>
-          </ThemeProvider>
-        </Provider>
-      </Router>
-    </Auth0Provider>
+    <Router>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
+      </Provider>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root'),
 );

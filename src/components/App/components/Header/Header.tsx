@@ -5,6 +5,9 @@ import Button from 'components/Button';
 import Link from 'components/Link';
 import { APP_NAME, ROUTES } from 'services/constants';
 
+import { useCallback } from 'react';
+import { authenticateAsync } from 'services/auth';
+import { store } from 'services/store';
 import styles from './Header.module.scss';
 
 const Wrap = styled.header`
@@ -16,7 +19,11 @@ const Wrap = styled.header`
   padding: 16px 0;
 `;
 
-function Header({ isAuthenticated, onLogin }: InferProps<typeof Header.propTypes>) {
+function Header({ isAuthenticated }: InferProps<typeof Header.propTypes>) {
+  const onLoginClick = useCallback(() => {
+    store.dispatch(authenticateAsync());
+  }, []);
+
   return (
     <Wrap>
       <div className={styles.rightNav}>
@@ -30,7 +37,7 @@ function Header({ isAuthenticated, onLogin }: InferProps<typeof Header.propTypes
             Account
           </Link>
         ) : (
-          <Button onClick={onLogin} variant="text">
+          <Button testId="loginButton" onClick={onLoginClick} variant="text">
             Get Started
           </Button>
         )}
@@ -41,7 +48,6 @@ function Header({ isAuthenticated, onLogin }: InferProps<typeof Header.propTypes
 
 Header.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
-  onLogin: PropTypes.func.isRequired,
 };
 
 export default Header;

@@ -49,7 +49,7 @@ exports[`<Header/> > should render unauthenticated header 1`] = `
     >
       <button
         class=" css-hcwumx"
-        data-testid="button"
+        data-testid="loginButton"
         type="button"
       >
         Get Started

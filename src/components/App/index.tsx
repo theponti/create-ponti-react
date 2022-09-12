@@ -1,12 +1,13 @@
-import { useAuth0 } from '@auth0/auth0-react';
 import styled from '@emotion/styled';
+import { FC } from 'react';
 import { connect } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import Loading from 'scenes/Loading';
 
 import Account from 'scenes/Account';
 import Home from 'scenes/Home';
+import Loading from 'scenes/Loading';
 import NotFound from 'scenes/NotFound';
+import { User } from 'services/auth';
 import { authSelectors, RootState } from 'services/store';
 
 import Header from './components/Header';
@@ -17,10 +18,12 @@ const Wrap = styled.div`
   display: flex;
 `;
 
-function App() {
-  const {
-    isAuthenticated, isLoading, loginWithPopup: onLogin,
-  } = useAuth0();
+type AppProps = {
+  isLoading: boolean
+  user: User
+};
+function App({ user, isLoading }: AppProps) {
+  const isAuthenticated = !!user;
 
   if (isLoading) {
     return (
@@ -30,7 +33,7 @@ function App() {
 
   return (
     <div data-testid="app-container">
-      <Header isAuthenticated={isAuthenticated} onLogin={onLogin} />
+      <Header isAuthenticated={isAuthenticated} />
       <Wrap>
         <Routes>
           <Route index element={<Home />} />
@@ -43,7 +46,8 @@ function App() {
 }
 
 const mapStateToProps = (state: RootState) => ({
+  isLoading: authSelectors.getIsLoadingAuth(state),
   user: authSelectors.getUser(state),
 });
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(App as FC);
