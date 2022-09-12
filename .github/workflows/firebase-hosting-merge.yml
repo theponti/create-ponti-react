@@ -11,22 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Set up PNPM
+      - name: Use PNPM
         uses: pnpm/action-setup@v2.2.1
         with:
           version: latest
           run_install: true
-
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
           cache: 'pnpm'
-
-      - name: Firebase Merge Deploy
+      - run: 'pnpm build:ci'
+      - name: Firebase Deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
-        run: 'pnpm test:ci && pnpm build'
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_AIDEA_8EE12 }}'

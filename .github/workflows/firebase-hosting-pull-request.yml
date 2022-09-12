@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2.2.2
+      - name: Use PNPM
+        uses: pnpm/action-setup@v2.2.2
         with:
           version: 7
       - name: Use Node.js ${{ matrix.node-version }}
@@ -17,8 +18,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      - run: 'pnpm test:ci && pnpm build'
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Build
+        run: 'pnpm build:ci'
+      - name: Firebase Preview
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_AIDEA_8EE12 }}'
