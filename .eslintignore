@@ -5,6 +5,7 @@
 *.svg
 *.yaml
 *.yml
+*.json
 
 # Directories
 public/**
@@ -15,12 +16,11 @@ public/**
 # Files
 .cz.json
 .eslintignore
-.eslintrc.json
-cypress.json
 index.html
 LICENSE
-package.json
-tsconfig.json
-tsconfig.node.json
-vercel.json
 README.md
+
+# Firebase
+.firebaserc
+*.rules
+functions

@@ -1,5 +1,5 @@
+import { css, SerializedStyles } from '@emotion/react';
 import { IS_MOBILE } from 'services/constants';
-import { css, FlattenSimpleInterpolation } from 'styled-components';
 import theme from './theme';
 
 const ONE = 1;
@@ -36,19 +36,19 @@ interface MediaQueries {
 }
 
 interface Media {
-  small?: () => FlattenSimpleInterpolation
-  medium?: () => FlattenSimpleInterpolation
-  large?: () => FlattenSimpleInterpolation
-  xLarge?: () => FlattenSimpleInterpolation
-  belowSmall?: () => FlattenSimpleInterpolation
-  belowMedium?: () => FlattenSimpleInterpolation
-  belowLarge?: () => FlattenSimpleInterpolation
-  belowXLarge?: () => FlattenSimpleInterpolation
-  portrait?: () => FlattenSimpleInterpolation
-  landscape?: () => FlattenSimpleInterpolation
-  hover?: () => FlattenSimpleInterpolation
-  mobile?: (arg: TemplateStringsArray) => false | FlattenSimpleInterpolation
-  notMobile?: (arg: TemplateStringsArray) => false | FlattenSimpleInterpolation
+  small?: () => SerializedStyles
+  medium?: () => SerializedStyles
+  large?: () => SerializedStyles
+  xLarge?: () => SerializedStyles
+  belowSmall?: () => SerializedStyles
+  belowMedium?: () => SerializedStyles
+  belowLarge?: () => SerializedStyles
+  belowXLarge?: () => SerializedStyles
+  portrait?: () => SerializedStyles
+  landscape?: () => SerializedStyles
+  hover?: () => SerializedStyles
+  mobile?: (arg: TemplateStringsArray) => false | SerializedStyles
+  notMobile?: (arg: TemplateStringsArray) => false | SerializedStyles
 }
 
 // Iterate through the sizes and create a media template
@@ -66,34 +66,11 @@ const media: Media = Object.keys(mediaQueries).reduce<Media>(
   },
 );
 
-interface SelectedColorProps {
-  selected: boolean;
-  theme: {
-    colors: {
-      primary: {
-        main: string;
-      };
-      text: {
-        main: string;
-      };
-    };
-  };
-}
-
-const styledPropsFns = {
-  selectedColor: (props: SelectedColorProps) => (props.selected
-    ? props.theme.colors.primary.main
-    : props.theme.colors.text.main),
-};
-
 const textMixins = {
   ellipsisOverflow: css`
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-  `,
-  selectedColor: css`
-    color: ${styledPropsFns.selectedColor};
   `,
 };
 
@@ -147,5 +124,5 @@ const visibility = {
 };
 
 export {
-  media, mediaQueries, styledPropsFns, textMixins, visibility,
+  media, mediaQueries, textMixins, visibility,
 };

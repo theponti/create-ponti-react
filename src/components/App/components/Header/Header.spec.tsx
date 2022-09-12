@@ -1,31 +1,71 @@
 /* eslint-disable react/jsx-handler-names */
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { signInWithPopup } from 'firebase/auth';
+import { getDocs } from 'firebase/firestore';
 import TestWrapper from 'testUtils/TestWrapper';
 import {
-  beforeEach, describe, expect, it, vi,
+  beforeEach, describe, expect, Mock, vi,
 } from 'vitest';
 import Header from './Header';
+
+vi.mock('firebase/auth', () => ({
+  getAuth: vi.fn(),
+  GoogleAuthProvider: vi.fn(),
+  setPersistence: vi.fn(),
+  signInWithPopup: vi.fn(() => ({ user: {} })),
+}));
+
+vi.mock('firebase/firestore', () => ({
+  addDoc: vi.fn(),
+  collection: vi.fn(),
+  getDocs: vi.fn(),
+  getFirestore: vi.fn(),
+  query: vi.fn(),
+  where: vi.fn(),
+}));
 
 describe('<Header/>', () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
-  it('should render unauthenticated header', () => {
+  test('should render unauthenticated header', () => {
     const { container } = render(
       <TestWrapper>
-        <Header isAuthenticated={false} onLogin={vi.fn()} />
+        <Header isAuthenticated={false} />
       </TestWrapper>,
     );
     expect(container).toMatchSnapshot();
   });
 
-  it('should render authenticated header', () => {
+  test('should render authenticated header', () => {
     const { container } = render(
       <TestWrapper>
-        <Header isAuthenticated onLogin={vi.fn()} />
+        <Header isAuthenticated />
       </TestWrapper>,
     );
     expect(container).toMatchSnapshot();
+  });
+
+  test('should log in user', () => {
+    render(
+      <TestWrapper>
+        <Header isAuthenticated={false} />
+      </TestWrapper>,
+    );
+    const button = screen.getByTestId('loginButton');
+    button.click();
+  });
+
+  test('should sign up user', () => {
+    (getDocs as Mock).mockResolvedValue({ docs: [] });
+    render(
+      <TestWrapper>
+        <Header isAuthenticated={false} />
+      </TestWrapper>,
+    );
+    const button = screen.getByTestId('loginButton');
+    button.click();
+    expect(signInWithPopup).toBeCalled();
   });
 });

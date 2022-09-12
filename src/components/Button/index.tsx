@@ -10,6 +10,7 @@ enum VARIANTS {
 type ButtonProps = {
   children: React.ReactNode;
   className?: string;
+  testId?: string;
   onClick: () => void;
   readonly variant: 'danger' | 'success' | 'text';
 };
@@ -56,11 +57,12 @@ function Button({
   className,
   onClick,
   variant,
+  testId,
 }: ButtonProps) {
   return (
     <Wrap
-      data-testid="button"
       className={className}
+      data-testid={testId}
       onClick={onClick}
       type="button"
       variant={variant}
@@ -72,6 +74,7 @@ function Button({
 
 Button.defaultProps = {
   className: '',
+  testId: '',
 };
 
 export default Button;

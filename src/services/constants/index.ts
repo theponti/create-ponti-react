@@ -121,3 +121,8 @@ export const fontFamilies = {
 export const ORIGIN = IS_CLIENT_SIDE
   ? `${window.location.protocol}//${window.location.host}`
   : undefined;
+
+export const COLLECTION_NAMES = {
+  SURVEYS: 'surveys',
+  USERS: 'users',
+};

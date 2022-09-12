@@ -1,5 +1,5 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
-import auth from './auth';
+import auth, { AuthState } from './auth';
 
 export const store = configureStore({
   reducer: {
@@ -21,6 +21,11 @@ Action<string>
 // in the slice file. For example: `useSelector((state: RootState) => state.auth.value)`
 export const authSelectors = {
   getAuthenticateError: (state: RootState) => state.auth.authenticateError,
+  getIsLoadingAuth: (state: RootState) => state.auth.isLoadingAuth,
+  getLogoutError: (state: RootState) => state.auth.logoutError,
   getUser: (state: RootState) => state.auth.user,
-  getLoginEmail: (state: RootState) => state.auth.loginEmail,
 };
+
+export interface AppState {
+  auth: AuthState
+}

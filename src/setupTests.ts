@@ -3,6 +3,9 @@ import mediaQuery from 'css-mediaquery';
 import { DESKTOP_RESOLUTION_HEIGHT, DESKTOP_RESOLUTION_WIDTH } from 'testUtils';
 import 'whatwg-fetch';
 
+vi.mock('firebase/auth');
+vi.mock('firebase/firestore');
+
 beforeAll(() => {
   Object.defineProperty(window, 'matchMedia', {
     writable: true,
