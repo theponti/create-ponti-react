@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-handler-names */
 import { render, screen } from '@testing-library/react';
-import { signInWithPopup } from 'firebase/auth';
+import { signInWithRedirect } from 'firebase/auth';
 import { getDocs } from 'firebase/firestore';
 import TestWrapper from 'testUtils/TestWrapper';
 import {
@@ -11,8 +11,9 @@ import Header from './Header';
 vi.mock('firebase/auth', () => ({
   getAuth: vi.fn(),
   GoogleAuthProvider: vi.fn(),
+  onAuthStateChanged: vi.fn(),
   setPersistence: vi.fn(),
-  signInWithPopup: vi.fn(() => ({ user: {} })),
+  signInWithRedirect: vi.fn(() => ({ user: {} })),
 }));
 
 vi.mock('firebase/firestore', () => ({
@@ -66,6 +67,6 @@ describe('<Header/>', () => {
     );
     const button = screen.getByTestId('loginButton');
     button.click();
-    expect(signInWithPopup).toBeCalled();
+    expect(signInWithRedirect).toBeCalled();
   });
 });
