@@ -1,5 +1,5 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, User } from 'firebase/auth';
 import {
   addDoc, getDocs, query, where,
 } from 'firebase/firestore';
@@ -35,7 +35,7 @@ export interface AppState {
   auth: AuthState
 }
 
-onAuthStateChanged(auth, async (user) => {
+export const authStateChangeHandler = async (user: User | null) => {
   if (user) {
     const q = query(collections.users, where('uid', '==', user.uid));
     const docs = await getDocs(q);
@@ -57,4 +57,6 @@ onAuthStateChanged(auth, async (user) => {
     photoURL: user.photoURL,
     uid: user.uid,
   } : undefined));
-});
+};
+
+onAuthStateChanged(auth, authStateChangeHandler);

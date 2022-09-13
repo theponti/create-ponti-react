@@ -1,5 +1,10 @@
-import { expect } from 'vitest';
+import { expect, test } from 'vitest';
 import reducer, { setUser } from './auth';
+import { authStateChangeHandler } from './store';
+
+test('should handle no user auth without blowing up', () => {
+  authStateChangeHandler(null);
+});
 
 test('should return inital state', () => {
   expect(reducer(undefined, { type: undefined })).toEqual({
