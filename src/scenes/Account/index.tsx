@@ -36,7 +36,7 @@ function Account({ user }: AccountProps) {
         {user.email}
       </p>
       <p>
-        <Button onClick={onLogoutClick} variant="danger">
+        <Button onClick={onLogoutClick} testId="logoutButton" variant="danger">
           Log out
         </Button>
       </p>

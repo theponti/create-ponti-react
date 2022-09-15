@@ -15,6 +15,7 @@ const TEST_THRESHOLD = Number(process.env.TEST_THRESHOLD) || TestOptions.TEST_TH
 export default defineConfig(({ mode }) => ({
   build: {
     outDir: 'build',
+    sourcemap: mode !== 'production',
   },
   css: {
     preprocessorOptions: {

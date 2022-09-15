@@ -2,59 +2,54 @@
 
 exports[`<Header/> > should render authenticated header 1`] = `
 <div>
-  <header
-    class="css-17ouny1"
-  >
-    <div
-      class="_rightNav_9ej0w_15"
+  <div>
+    <header
+      class="css-17ouny1"
     >
-      <a
-        class="_wrap_4yjwv_1 _appName_9ej0w_1"
-        href="/"
+      <div
+        class="_rightNav_9ej0w_15"
       >
-        Ponti UI
-      </a>
-    </div>
-    <div
-      class="_leftNav_9ej0w_14"
-    >
-      <a
-        class="_wrap_4yjwv_1 _menuItem_9ej0w_20"
-        href="/account"
+        <div>
+          Ponti UI
+        </div>
+      </div>
+      <div
+        class="_leftNav_9ej0w_14"
       >
-        Account
-      </a>
-    </div>
-  </header>
+        <div>
+          Account
+        </div>
+      </div>
+    </header>
+  </div>
 </div>
 `;
 
 exports[`<Header/> > should render unauthenticated header 1`] = `
 <div>
-  <header
-    class="css-17ouny1"
-  >
-    <div
-      class="_rightNav_9ej0w_15"
+  <div>
+    <header
+      class="css-17ouny1"
     >
-      <a
-        class="_wrap_4yjwv_1 _appName_9ej0w_1"
-        href="/"
+      <div
+        class="_rightNav_9ej0w_15"
       >
-        Ponti UI
-      </a>
-    </div>
-    <div
-      class="_leftNav_9ej0w_14"
-    >
-      <button
-        class=" css-hcwumx"
-        data-testid="loginButton"
-        type="button"
+        <div>
+          Ponti UI
+        </div>
+      </div>
+      <div
+        class="_leftNav_9ej0w_14"
       >
-        Get Started
-      </button>
-    </div>
-  </header>
+        <button
+          class=" css-hcwumx"
+          data-testid="loginButton"
+          type="button"
+        >
+          Get Started
+        </button>
+      </div>
+    </header>
+  </div>
 </div>
 `;

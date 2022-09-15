@@ -8,16 +8,9 @@ import App from 'components/App';
 import { store } from 'services/store';
 import theme from 'styles/theme';
 
-import { onAuthStateChanged } from 'firebase/auth';
-import { setUser } from 'services/auth';
-import { auth } from 'services/firebase';
 import './index.css';
 
 // Update Redux when Firebase Auth changes
-onAuthStateChanged(auth, (user) => {
-  store.dispatch(setUser(user || undefined));
-});
-
 ReactDOM.render(
   <React.StrictMode>
     <Router>

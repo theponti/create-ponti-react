@@ -4,9 +4,11 @@ import { Link as RouterLink } from 'react-router-dom';
 
 import styles from './Link.module.scss';
 
-function Link({ children, className, to }: InferProps<typeof Link.propTypes>) {
+function Link({
+  children, className, testId, to,
+}: InferProps<typeof Link.propTypes>) {
   return (
-    <RouterLink to={to} className={cx(styles.wrap, className)}>
+    <RouterLink data-testid={testId} to={to} className={cx(styles.wrap, className)}>
       {children}
     </RouterLink>
   );
@@ -19,6 +21,7 @@ Link.defaultProps = {
 Link.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
+  testId: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
 };
 
