@@ -27,13 +27,13 @@ function Header({ isAuthenticated }: InferProps<typeof Header.propTypes>) {
   return (
     <Wrap>
       <div className={styles.rightNav}>
-        <Link to="/" className={styles.appName}>
+        <Link testId="appName" to="/" className={styles.appName}>
           {APP_NAME}
         </Link>
       </div>
       <div className={styles.leftNav}>
         {isAuthenticated ? (
-          <Link className={styles.menuItem} to={ROUTES.ACCOUNT_PATH}>
+          <Link testId="accountButton" className={styles.menuItem} to={ROUTES.ACCOUNT_PATH}>
             Account
           </Link>
         ) : (

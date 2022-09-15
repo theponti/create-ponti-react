@@ -3,8 +3,23 @@ import mediaQuery from 'css-mediaquery';
 import { DESKTOP_RESOLUTION_HEIGHT, DESKTOP_RESOLUTION_WIDTH } from 'testUtils';
 import 'whatwg-fetch';
 
-vi.mock('firebase/auth');
-vi.mock('firebase/firestore');
+vi.mock('firebase/auth', () => ({
+  getAuth: vi.fn(),
+  GoogleAuthProvider: vi.fn(),
+  onAuthStateChanged: vi.fn(),
+  setPersistence: vi.fn(),
+  signInWithRedirect: vi.fn(() => ({ user: {} })),
+  signOut: vi.fn(),
+}));
+
+vi.mock('firebase/firestore', () => ({
+  addDoc: vi.fn(),
+  collection: vi.fn(),
+  getDocs: vi.fn().mockReturnValue({ docs: [] }),
+  getFirestore: vi.fn(),
+  query: vi.fn(),
+  where: vi.fn(),
+}));
 
 beforeAll(() => {
   Object.defineProperty(window, 'matchMedia', {

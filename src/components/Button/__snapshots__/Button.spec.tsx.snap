@@ -2,36 +2,42 @@
 
 exports[`<Button/> > should render a danger button 1`] = `
 <div>
-  <button
-    class=" css-1397b20"
-    data-testid=""
-    type="button"
-  >
-    Button
-  </button>
+  <div>
+    <button
+      class=" css-1397b20"
+      data-testid=""
+      type="button"
+    >
+      Button
+    </button>
+  </div>
 </div>
 `;
 
 exports[`<Button/> > should render a success button 1`] = `
 <div>
-  <button
-    class=" css-1s1ieio"
-    data-testid=""
-    type="button"
-  >
-    Button
-  </button>
+  <div>
+    <button
+      class=" css-1s1ieio"
+      data-testid=""
+      type="button"
+    >
+      Button
+    </button>
+  </div>
 </div>
 `;
 
 exports[`<Button/> > should render a text button 1`] = `
 <div>
-  <button
-    class=" css-hcwumx"
-    data-testid=""
-    type="button"
-  >
-    Button
-  </button>
+  <div>
+    <button
+      class=" css-hcwumx"
+      data-testid=""
+      type="button"
+    >
+      Button
+    </button>
+  </div>
 </div>
 `;
