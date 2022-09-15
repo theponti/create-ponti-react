@@ -88,9 +88,8 @@
       {
         "devDependencies": [
           "vite.config.ts",
-          "src/setupTests.ts",
-          "src/testUtils.tsx",
           "src/mocks/**",
+          "src/testUtils/**",
           "**/*.spec.{ts,tsx}"
         ]
       }
