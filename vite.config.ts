@@ -44,7 +44,6 @@ export default defineConfig(({ mode }) => ({
         'src/testUtils',
         'src/**/*.spec.{ts,tsx}',
       ],
-      provider: 'istanbul',
       reporter: ['lcov'],
       reportsDirectory: 'coverage',
       // Thresholds for coverage results
