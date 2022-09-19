@@ -1,7 +1,0 @@
-{
-	"baseUrl": "http://localhost:4173/",
-	"fileServerFolder": "build",
-	"fixturesFolder": false,
-	"projectId": "ssvz5r",
-	"integrationFolder": "cypress/e2e"
-}

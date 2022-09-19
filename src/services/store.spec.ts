@@ -1,5 +1,6 @@
 import { User } from 'firebase/auth';
 import { expect, test } from 'vitest';
+
 import reducer, { setUser } from './auth';
 import { authSelectors, authStateChangeHandler } from './store';
 

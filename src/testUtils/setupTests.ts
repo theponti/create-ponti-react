@@ -1,7 +1,8 @@
 import '@testing-library/jest-dom';
 import mediaQuery from 'css-mediaquery';
-import { DESKTOP_RESOLUTION_HEIGHT, DESKTOP_RESOLUTION_WIDTH } from 'testUtils';
 import 'whatwg-fetch';
+
+import { DESKTOP_RESOLUTION_HEIGHT, DESKTOP_RESOLUTION_WIDTH } from 'testUtils';
 
 vi.mock('firebase/auth', () => ({
   getAuth: vi.fn(),
