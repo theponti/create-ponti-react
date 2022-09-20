@@ -17,7 +17,9 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: 'build',
     rollupOptions: {
-      plugins: [analyze()],
+      plugins: [
+        analyze({ summaryOnly: true }),
+      ],
     },
     sourcemap: mode !== 'production',
     minify: 'terser',
