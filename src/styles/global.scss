@@ -50,11 +50,11 @@ $warning_contrast: $text_main;
 
 $white: #fff;
 
-$breakpoints_small: 500;
-$breakpoints_medium: 769;
-$breakpoints_large: 993;
-$breakpoints_xLarge: 1200;
-$breakpoints_xxLarge: 1800;
+$breakpoints_small: 500px;
+$breakpoints_medium: 769px;
+$breakpoints_large: 993px;
+$breakpoints_xLarge: 1200px;
+$breakpoints_xxLarge: 1800px;
 
 
 $focusShadow: 0 0 0 3px #c0d2fb;
@@ -92,152 +92,158 @@ $shadows_medium: 0px 3px 12px -3px rgba(0, 0, 0, 0.25);
 $shadows_large: 0px 6px 50px 1px rgba(0, 0, 0, 0.25);
 $shadows_cloud: -8px 9px 48px rgba(218, 224, 236, 0.22);
 
-// $text_
-//     fontFamily,
-//     lineHeight,
-//     fontWeightRegular: 400,
-//     fontWeightSemiBold: 600,
-//     fontWeightBold: 700,
-//     fontWeightExtraBold: 800,
-//     @mixin h1: {
-//       fontFamily,
-//       lineHeight,
-//       fontSize: '4.0rem',
-//       fontWeight: 600,
-//       color: textColors.dark,
-//       marginBottom: '2.0rem',
-//     },
-//     h2: {
-//       fontFamily,
-//       lineHeight,
-//       fontSize: '2.8rem',
-//       fontWeight: 600,
-//       color: textColors.dark,
-//       marginBottom: '1.6rem',
-//     },
-//     h3: {
-//       fontFamily,
-//       lineHeight,
-//       fontSize: '2.2rem',
-//       fontWeight: 600,
-//       color: textColors.dark,
-//       marginBottom: '1.6rem',
-//     },
-//     h4: {
-//       fontFamily,
-//       lineHeight,
-//       fontSize: '1.7rem',
-//       fontWeight: 600,
-//       color: textColors.dark,
-//       marginBottom: '1.6rem',
-//     },
-//     h5: {
-//       fontFamily,
-//       lineHeight,
-//       fontSize: '1.5rem',
-//       fontWeight: 600,
-//       color: textColors.dark,
-//       marginBottom: '1.6rem',
-//     },
-//     h6: {
-//       fontFamily,
-//       lineHeight,
-//       fontSize: '1.4rem',
-//       fontWeight: 600,
-//       color: textColors.dark,
-//       marginBottom: '1.2rem',
-//     },
-//     nav: {
-//       fontFamily,
-//       lineHeight,
-//       fontSize: '1.4rem',
-//       fontWeight: 400,
-//       color: textColors.main,
-//     },
-//     label: {
-//       fontFamily,
-//       lineHeight,
-//       fontSize: '1.6rem',
-//       fontWeight: 400,
-//       color: textColors.main,
-//       marginBottom: '1.0rem',
-//     },
-//     label2: {
-//       fontFamily,
-//       lineHeight,
-//       fontSize: '1.4rem',
-//       fontWeight: 400,
-//       color: textColors.main,
-//       marginBottom: '1.0rem',
-//     },
-//     body: {
-//       fontFamily,
-//       fontSize: '1.6rem',
-//       fontWeight: 400,
-//       lineHeight: '1.6',
-//       color: textColors.main,
-//       marginBottom: '1.6rem',
-//     },
-//     body2: {
-//       fontFamily,
-//       fontSize: '1.4rem',
-//       fontWeight: 400,
-//       lineHeight: '1.6',
-//       color: textColors.main,
-//       marginBottom: '1.2rem',
-//     },
-//     body3: {
-//       fontFamily,
-//       fontSize: '1.3rem',
-//       fontWeight: 400,
-//       lineHeight: '1.6',
-//       color: textColors.main,
-//       marginBottom: '1.2rem',
-//     },
-//     // iOS will auto zoom on inputs unless the font size is at least 16px. No auto-zoom
-//     // makes it feel more like a native app, so use 16px for all inputs on mobile. Also,
-//     // don't use rem for buttons either so their font says stays proportional to input.
-//     // It looks bad if the input text is much larger than the button text.
-//     // https://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
+$text_fontFamily: Inter-Regular;
+$text_lineHeight: 1.4rem;
+$text_lineHeight-tall: 1.6rem;
+$text_font-weightRegular: 400;
+$text_font-weightSemiBold: 600;
+$text_font-weightBold: 700;
+$text_font-weightExtraBold: 800;
+
+@mixin header {
+  font-family: $text_fontFamily;
+  line-height: $text_lineHeight;
+  color: $text_dark;
+}
+
+@mixin text {
+  font-family: $text_fontFamily;
+  line-height: $text_lineHeight;
+  color: $text_main;
+}
+
+@mixin text-tall {
+  font-family: $text_fontFamily;
+  line-height: $text_lineHeight-tall;
+  color: $text_main;
+}
+
+@mixin h1 {
+  @include header();
+  font-size: 4.0rem;
+  font-weight: 600;
+  margin-bottom: 2.0rem;
+}
+
+@mixin h2 {
+  @include header();
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin-bottom: 1.6rem;
+}
+
+@mixin h3 {
+  @include header();
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 1.6rem;
+}
+
+@mixin h4 {
+  @include header();
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 1.6rem;
+}
+
+@mixin h5 {
+  @include header();
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.6rem;
+}
+
+@mixin h6 {
+  @include header();
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.nav {
+  @include text();
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.label {
+  @include text();
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 1.0rem;
+}
+.label2 {
+  @include text();
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 1.0rem;
+}
+
+.body {
+  @include text-tall();
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+}
+
+.body2 {
+  @include text-tall();
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 1.2rem;
+}
+
+.body3 {
+  @include text-tall();
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 1.2rem;
+}
+
+// iOS will auto zoom on inputs unless the font size is at least 16px. No auto-zoom
+// makes it feel more like a native app, so use 16px for all inputs on mobile. Also,
+// don't use rem for buttons either so their font says stays proportional to input.
+// It looks bad if the input text is much larger than the button text.
+// https://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
 //     button: {
 //       fontFamily,
 //       lineHeight,
-//       fontSize: IS_MOBILE ? '16px' : '1.6rem',
-//       fontWeight: 600,
+//       font-size: IS_MOBILE ? '16px' : '1.6rem',
+//       font-weight: 600,
 //     },
 //     button2: {
 //       fontFamily,
 //       lineHeight,
-//       fontSize: IS_MOBILE ? '14px' : '1.4rem',
-//       fontWeight: 600,
+//       font-size: IS_MOBILE ? '14px' : '1.4rem',
+//       font-weight: 600,
 //     },
 //     input: {
 //       fontFamily,
 //       lineHeight,
-//       fontSize: IS_MOBILE ? '16px' : '1.6rem',
-//       fontWeight: 400,
+//       font-size: IS_MOBILE ? '16px' : '1.6rem',
+//       font-weight: 400,
 //       color: textColors.dark,
 //     },
 //     input2: {
 //       fontFamily,
 //       lineHeight,
-//       fontSize: IS_MOBILE ? '16px' : '1.4rem',
-//       fontWeight: 400,
+//       font-size: IS_MOBILE ? '16px' : '1.4rem',
+//       font-weight: 400,
 //       color: textColors.dark,
 //     },
 //     inputPlaceholder: {
 //       fontFamily,
 //       lineHeight,
-//       fontSize: IS_MOBILE ? '16px' : '1.6rem',
-//       fontWeight: 400,
+//       font-size: IS_MOBILE ? '16px' : '1.6rem',
+//       font-weight: 400,
 //       color: textColors.light,
 //     },
 //     inputPlaceholder2: {
 //       fontFamily,
 //       lineHeight,
-//       fontSize: IS_MOBILE ? '16px' : '1.4rem',
-//       fontWeight: 400,
+//       font-size: IS_MOBILE ? '16px' : '1.4rem',
+//       font-weight: 400,
 //       color: textColors.light,
 //     },
 //   },
-//   unit: 8,
+$unit: 8;

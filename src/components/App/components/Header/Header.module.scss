@@ -1,3 +1,12 @@
+.wrap {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: $breakpoints_xLarge;
+  padding: 16px 0;
+}
+
 .appName {
     display: flex;
     align-items: center;

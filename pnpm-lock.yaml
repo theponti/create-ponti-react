@@ -5,7 +5,6 @@ specifiers:
   '@babel/preset-env': 7.18.10
   '@cypress/code-coverage': 3.10.0
   '@emotion/react': ^11.10.0
-  '@emotion/styled': ^11.10.0
   '@fortawesome/fontawesome-svg-core': 6.1.2
   '@fortawesome/free-solid-svg-icons': 6.1.2
   '@fortawesome/react-fontawesome': 0.2.0
@@ -63,6 +62,7 @@ specifiers:
   react-redux: ^8.0.2
   react-router-dom: 6.3.0
   rollup: 2.77.3
+  rollup-plugin-analyzer: ^4.0.0
   rollup-plugin-istanbul: 3.0.0
   sass: ^1.54.4
   start-server-and-test: 1.14.0
@@ -79,7 +79,6 @@ specifiers:
 
 dependencies:
   '@emotion/react': 11.10.4_wo3p5wnkll2st6dasyyxx7rvry
-  '@emotion/styled': 11.10.4_yvfnbxm2mbc326ylyt2xh7sw5a
   '@fortawesome/fontawesome-svg-core': 6.1.2
   '@fortawesome/free-solid-svg-icons': 6.1.2
   '@fortawesome/react-fontawesome': 0.2.0_cexyl65xkujrplwajjmas5tvau
@@ -143,6 +142,7 @@ devDependencies:
   npm-run-all: 4.1.5
   postcss: 8.4.16
   rollup: 2.77.3
+  rollup-plugin-analyzer: 4.0.0
   rollup-plugin-istanbul: 3.0.0_rollup@2.77.3
   sass: 1.54.9
   start-server-and-test: 1.14.0
@@ -1561,12 +1561,6 @@ packages:
     resolution: {integrity: sha512-14FtKiHhy2QoPIzdTcvh//8OyBlknNs2nXRwIhG904opCby3l+9Xaf/wuPvICBF0rc1ZCNBd3nKe9cd2mecVkQ==}
     dev: false
 
-  /@emotion/is-prop-valid/1.2.0:
-    resolution: {integrity: sha512-3aDpDprjM0AwaxGE09bOPkNxHpBd+kA6jty3RnaEXdweX1DF1U3VQpPYb0g1IStAuK7SVQ1cy+bNBBKp4W3Fjg==}
-    dependencies:
-      '@emotion/memoize': 0.8.0
-    dev: false
-
   /@emotion/memoize/0.8.0:
     resolution: {integrity: sha512-G/YwXTkv7Den9mXDO7AhLWkE3q+I92B+VqAE+dYG4NGPaHZGvt3G8Q0p9vmE+sq7rTGphUbAvmQ9YpbfMQGGlA==}
     dev: false
@@ -1608,31 +1602,6 @@ packages:
 
   /@emotion/sheet/1.2.0:
     resolution: {integrity: sha512-OiTkRgpxescko+M51tZsMq7Puu/KP55wMT8BgpcXVG2hqXc0Vo0mfymJ/Uj24Hp0i083ji/o0aLddh08UEjq8w==}
-    dev: false
-
-  /@emotion/styled/11.10.4_yvfnbxm2mbc326ylyt2xh7sw5a:
-    resolution: {integrity: sha512-pRl4R8Ez3UXvOPfc2bzIoV8u9P97UedgHS4FPX594ntwEuAMA114wlaHvOK24HB48uqfXiGlYIZYCxVJ1R1ttQ==}
-    peerDependencies:
-      '@babel/core': ^7.0.0
-      '@emotion/react': ^11.0.0-rc.0
-      '@types/react': '*'
-      react: '>=16.8.0'
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      '@types/react':
-        optional: true
-    dependencies:
-      '@babel/core': 7.18.10
-      '@babel/runtime': 7.19.0
-      '@emotion/babel-plugin': 11.10.2_@babel+core@7.18.10
-      '@emotion/is-prop-valid': 1.2.0
-      '@emotion/react': 11.10.4_wo3p5wnkll2st6dasyyxx7rvry
-      '@emotion/serialize': 1.1.0
-      '@emotion/use-insertion-effect-with-fallbacks': 1.0.0_react@17.0.2
-      '@emotion/utils': 1.2.0
-      '@types/react': 17.0.44
-      react: 17.0.2
     dev: false
 
   /@emotion/unitless/0.8.0:
@@ -7871,6 +7840,11 @@ packages:
     hasBin: true
     dependencies:
       glob: 7.2.3
+
+  /rollup-plugin-analyzer/4.0.0:
+    resolution: {integrity: sha512-LL9GEt3bkXp6Wa19SNR5MWcvHNMvuTFYg+eYBZN2OIFhSWN+pEJUQXEKu5BsOeABob3x9PDaLKW7w5iOJnsESQ==}
+    engines: {node: '>=8.0.0'}
+    dev: true
 
   /rollup-plugin-istanbul/3.0.0_rollup@2.77.3:
     resolution: {integrity: sha512-z8kD2A57qTcxgqjbJ8cZBBE/IGYk+iJtE42sCaZjrSe/uBEUq5jJYvQwquJ+Acfko1LMYww4EJfeMJmc0GttpQ==}

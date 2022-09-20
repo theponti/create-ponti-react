@@ -3,24 +3,24 @@
 exports[`<Header/> > should render authenticated header 1`] = `
 <div>
   <div>
-    <header
-      class="css-17ouny1"
+    <div
+      class="_wrap_1o7x9_54"
     >
       <div
-        class="_rightNav_9ej0w_15"
+        class="_rightNav_1o7x9_77"
       >
         <div>
           Ponti UI
         </div>
       </div>
       <div
-        class="_leftNav_9ej0w_14"
+        class="_leftNav_1o7x9_76"
       >
         <div>
           Account
         </div>
       </div>
-    </header>
+    </div>
   </div>
 </div>
 `;
@@ -28,28 +28,28 @@ exports[`<Header/> > should render authenticated header 1`] = `
 exports[`<Header/> > should render unauthenticated header 1`] = `
 <div>
   <div>
-    <header
-      class="css-17ouny1"
+    <div
+      class="_wrap_1o7x9_54"
     >
       <div
-        class="_rightNav_9ej0w_15"
+        class="_rightNav_1o7x9_77"
       >
         <div>
           Ponti UI
         </div>
       </div>
       <div
-        class="_leftNav_9ej0w_14"
+        class="_leftNav_1o7x9_76"
       >
         <button
-          class=" css-hcwumx"
+          class="_wrap_1hyw7_54 _text_1hyw7_80"
           data-testid="loginButton"
           type="button"
         >
           Get Started
         </button>
       </div>
-    </header>
+    </div>
   </div>
 </div>
 `;
