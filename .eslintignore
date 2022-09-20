@@ -1,5 +1,6 @@
 # Extensions
 *.css
+*.html
 *.scss
 *.snap
 *.svg
