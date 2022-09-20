@@ -6,17 +6,24 @@
 [![commitizen](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/wtchnm/Vitamin/blob/main/LICENSE)
 
-the boilerplate for Ponti & Co web apps
+the boilerplate for Ponti Studios web apps
 
 ## Features
 
-- [Vite](https://vitejs.dev) with [React](https://reactjs.org), [TypeScript](https://www.typescriptlang.org) and [absolute imports](https://github.com/aleclarson/vite-tsconfig-paths).
+- ***Language:*** [TypeScript](https://www.typescriptlang.org)
+- ***Framework:*** [React](https://reactjs.org)
+- ***Build:*** [Vite](https://vitejs.dev)
+  - [absolute imports](https://github.com/aleclarson/vite-tsconfig-paths).
+  - [PWA](https://github.com/antfu/vite-plugin-pwa) with [17/17 Lighthouse score](https://web.dev/pwa-checklist/).
 - [ESLint](https://eslint.org) and [stylelint](https://stylelint.io) on VSCode and before you commit with [Husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged).
-- [PWA](https://github.com/antfu/vite-plugin-pwa) with [17/17 Lighthouse score](https://web.dev/pwa-checklist/).
-- unit and integration tests with [Vitest](https://vitest.dev/) and [Testing Library](https://testing-library.com/).
-- e2e tests with [Cypress](https://www.cypress.io).
-- GitHub Actions for automatic [dependency updates](https://renovatebot.com/), [CodeQL Analysis](https://securitylab.github.com/tools/codeql), running tests and code coverage with [Codecov](https://about.codecov.io/).
-- Deploy to [Vercel](vercel.com) with pre-configured [SPA fallback](https://vercel.com/docs/configuration#routes/advanced/spa-fallback).
+- ***Testing:*** 
+  - *Unit:* [Vitest](https://vitest.dev/) and [Testing Library](https://testing-library.com/). 
+  - *E2E:* [Cypress](https://www.cypress.io).
+- ***Continuous Integration***
+  - GitHub Actions
+  - *Code quality:* [CodeQL Analysis](https://securitylab.github.com/tools/codeql)
+  - *Code coverage:* [Codecov](https://about.codecov.io/).
+- ***Deployment:*** [Firebase](firebase.com)
 
 ## Scripts
 
