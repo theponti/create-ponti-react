@@ -1,3 +1,4 @@
+$unit: 8;
 $black: #11121b;
 
 $blue_dark: #003fc4;
@@ -112,6 +113,18 @@ $text_font-weightExtraBold: 800;
   color: $text_main;
 }
 
+@mixin text-dark {
+  font-family: $text_fontFamily;
+  line-height: $text_lineHeight;
+  color: $text_dark;
+}
+
+@mixin text-light {
+  font-family: $text_fontFamily;
+  line-height: $text_lineHeight;
+  color: $text_light;
+}
+
 @mixin text-tall {
   font-family: $text_fontFamily;
   line-height: $text_lineHeight-tall;
@@ -160,6 +173,12 @@ $text_font-weightExtraBold: 800;
   margin-bottom: 1.2rem;
 }
 
+@mixin device-small {
+  @media (max-width: $breakpoints_medium) {
+    @content;
+  }
+}
+
 .nav {
   @include text();
   font-size: 1.4rem;
@@ -205,45 +224,57 @@ $text_font-weightExtraBold: 800;
 // don't use rem for buttons either so their font says stays proportional to input.
 // It looks bad if the input text is much larger than the button text.
 // https://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
-//     button: {
-//       fontFamily,
-//       lineHeight,
-//       font-size: IS_MOBILE ? '16px' : '1.6rem',
-//       font-weight: 600,
-//     },
-//     button2: {
-//       fontFamily,
-//       lineHeight,
-//       font-size: IS_MOBILE ? '14px' : '1.4rem',
-//       font-weight: 600,
-//     },
-//     input: {
-//       fontFamily,
-//       lineHeight,
-//       font-size: IS_MOBILE ? '16px' : '1.6rem',
-//       font-weight: 400,
-//       color: textColors.dark,
-//     },
-//     input2: {
-//       fontFamily,
-//       lineHeight,
-//       font-size: IS_MOBILE ? '16px' : '1.4rem',
-//       font-weight: 400,
-//       color: textColors.dark,
-//     },
-//     inputPlaceholder: {
-//       fontFamily,
-//       lineHeight,
-//       font-size: IS_MOBILE ? '16px' : '1.6rem',
-//       font-weight: 400,
-//       color: textColors.light,
-//     },
-//     inputPlaceholder2: {
-//       fontFamily,
-//       lineHeight,
-//       font-size: IS_MOBILE ? '16px' : '1.4rem',
-//       font-weight: 400,
-//       color: textColors.light,
-//     },
-//   },
-$unit: 8;
+button {
+  @include text();
+  font-size: 1.6rem;
+  font-weight: 600;
+  @include device-small {
+    font-size: 16px;
+  }
+}
+
+.button2 {
+  @include text();
+  font-size: 1.4rem;
+  font-weight: 600;
+  @include device-small {
+    font-size: 14px;
+  }
+}
+
+.input {
+  @include text-dark();
+  font-size: 1.6rem;
+  font-weight: 400;
+  @include device-small {
+    font-size: 16px;
+  }
+}
+
+.input2 {
+  @include text-dark();
+  font-size: 1.4rem;
+  font-weight: 400;
+  @include device-small {
+    font-size: 16px;
+  }
+}
+
+.inputPlaceholder {
+  @include text-light();
+  font-size: 1.6rem;
+  font-weight: 400;
+  @include device-small {
+    font-size: 16px;
+  }
+}
+
+.inputPlaceholder2 {
+  @include text-light();
+  font-size: 1.4rem;
+  font-weight: 400;
+
+  @include device-small {
+    font-size: 16px;
+  }
+}

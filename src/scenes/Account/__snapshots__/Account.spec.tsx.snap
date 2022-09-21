@@ -29,7 +29,7 @@ exports[`Account > should be able to logout 1`] = `
       </p>
       <p>
         <button
-          class="_wrap_1hyw7_54 _danger_1hyw7_72"
+          class="_wrap_gkvrq_132 _danger_gkvrq_150"
           data-testid="logoutButton"
           type="button"
         >

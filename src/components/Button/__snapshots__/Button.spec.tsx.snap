@@ -4,7 +4,7 @@ exports[`<Button/> > should render a danger button 1`] = `
 <div>
   <div>
     <button
-      class="_wrap_1hyw7_54 _danger_1hyw7_72"
+      class="_wrap_gkvrq_132 _danger_gkvrq_150"
       data-testid=""
       type="button"
     >
@@ -18,7 +18,7 @@ exports[`<Button/> > should render a success button 1`] = `
 <div>
   <div>
     <button
-      class="_wrap_1hyw7_54 _success_1hyw7_76"
+      class="_wrap_gkvrq_132 _success_gkvrq_154"
       data-testid=""
       type="button"
     >
@@ -32,7 +32,7 @@ exports[`<Button/> > should render a text button 1`] = `
 <div>
   <div>
     <button
-      class="_wrap_1hyw7_54 _text_1hyw7_80"
+      class="_wrap_gkvrq_132 _text_gkvrq_158"
       data-testid=""
       type="button"
     >

@@ -15,7 +15,7 @@ function Header({ isAuthenticated }: InferProps<typeof Header.propTypes>) {
   }, []);
 
   return (
-    <div className={styles.wrap}>
+    <nav className={styles.wrap}>
       <div className={styles.rightNav}>
         <Link testId="appName" to="/" className={styles.appName}>
           {APP_NAME}
@@ -32,7 +32,7 @@ function Header({ isAuthenticated }: InferProps<typeof Header.propTypes>) {
           </Button>
         )}
       </div>
-    </div>
+    </nav>
   );
 }
 
