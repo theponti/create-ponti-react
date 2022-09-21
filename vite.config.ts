@@ -30,6 +30,9 @@ export default defineConfig(({ mode }) => ({
     },
   },
   css: {
+    modules: {
+      localsConvention: 'dashesOnly',
+    },
     preprocessorOptions: {
       scss: {
         additionalData: '@import "@/styles/global.scss";',

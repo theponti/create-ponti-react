@@ -1,6 +1,6 @@
 .wrap {
   background-color: rgb(0 133 255);
-  border-radius: $shape_borderRadius;
+  border-radius: $shape_border-radius;
   border: 0;
   color: rgb(255 255 255);
   cursor: pointer;
@@ -16,17 +16,17 @@
   &:hover,
   &:focus {
     background-color: $grey_light100;
-    box-shadow: $focusShadow;
+    box-shadow: $focus-shadow;
   }
 
   &.danger {
-      color: $white;
-      background-color: $red_main;
+    color: $white;
+    background-color: $red-main;
   }
 
   &.success {
     color: $white;
-    background-color: $green_main;
+    background-color: $green-main;
   }
 
   &.text {
