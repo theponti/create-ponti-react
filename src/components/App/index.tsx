@@ -1,4 +1,3 @@
-import styled from '@emotion/styled';
 import { FC } from 'react';
 import { connect } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
@@ -10,13 +9,8 @@ import NotFound from 'scenes/NotFound';
 import { User } from 'services/auth';
 import { authSelectors, RootState } from 'services/store';
 
+import styles from './App.module.scss';
 import Header from './components/Header';
-
-const Wrap = styled.div`
-  margin: 24px auto;
-  max-width: ${(props) => props.theme.breakpoints.xLarge}px;
-  display: flex;
-`;
 
 type AppProps = {
   isLoading: boolean
@@ -34,13 +28,13 @@ function App({ user, isLoading }: AppProps) {
   return (
     <div data-testid="app-container">
       <Header isAuthenticated={isAuthenticated} />
-      <Wrap>
+      <div className={styles.wrap}>
         <Routes>
           <Route index element={<Home />} />
           <Route path="account" element={<Account />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </Wrap>
+      </div>
     </div>
   );
 }

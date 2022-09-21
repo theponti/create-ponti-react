@@ -1,24 +1,33 @@
-.appName {
-    display: flex;
-    align-items: center;
-    font-size: 24px;
-    font-weight: 500;
-    color: black;
-    text-decoration: none;
-
-    img {
-      height: 2.5rem;
-      margin-right: 0.4rem;
-    }
+.wrap {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: $breakpoints-xlarge;
+  padding: 16px 0;
 }
 
-.leftNav,
-.rightNav {
-    display: flex;
-    align-items: center;
+.app-name {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+
+  img {
+    height: 2.5rem;
+    margin-right: 0.4rem;
+  }
 }
 
-.menuItem {
+.left-nav,
+.right-nav {
+  display: flex;
+  align-items: center;
+}
+
+.menu-item {
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -32,6 +41,6 @@
 
   &:hover,
   &:focus {
-    background-color: rgb(225, 225, 225);
+    background-color: rgb(225 225 225);
   }
 }
