@@ -4,7 +4,7 @@ exports[`<Button/> > should render a danger button 1`] = `
 <div>
   <div>
     <button
-      class=" css-1397b20"
+      class="_wrap_j0gpx_132 _danger_j0gpx_150"
       data-testid=""
       type="button"
     >
@@ -18,7 +18,7 @@ exports[`<Button/> > should render a success button 1`] = `
 <div>
   <div>
     <button
-      class=" css-1s1ieio"
+      class="_wrap_j0gpx_132 _success_j0gpx_154"
       data-testid=""
       type="button"
     >
@@ -32,7 +32,7 @@ exports[`<Button/> > should render a text button 1`] = `
 <div>
   <div>
     <button
-      class=" css-hcwumx"
+      class="_wrap_j0gpx_132 _text_j0gpx_158"
       data-testid=""
       type="button"
     >

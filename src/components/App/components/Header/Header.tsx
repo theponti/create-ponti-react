@@ -1,4 +1,3 @@
-import styled from '@emotion/styled';
 import PropTypes, { InferProps } from 'prop-types';
 
 import Button from 'components/Button';
@@ -10,22 +9,13 @@ import { authenticateAsync } from 'services/auth';
 import { store } from 'services/store';
 import styles from './Header.module.scss';
 
-const Wrap = styled.header`
-  display: flex;
-  align-content: center;
-  justify-content: space-between;
-  margin: 0 auto;
-  max-width: ${(props) => props.theme.breakpoints.xLarge}px;
-  padding: 16px 0;
-`;
-
 function Header({ isAuthenticated }: InferProps<typeof Header.propTypes>) {
   const onLoginClick = useCallback(() => {
     store.dispatch(authenticateAsync());
   }, []);
 
   return (
-    <Wrap>
+    <nav className={styles.wrap}>
       <div className={styles.rightNav}>
         <Link testId="appName" to="/" className={styles.appName}>
           {APP_NAME}
@@ -42,7 +32,7 @@ function Header({ isAuthenticated }: InferProps<typeof Header.propTypes>) {
           </Button>
         )}
       </div>
-    </Wrap>
+    </nav>
   );
 }
 
