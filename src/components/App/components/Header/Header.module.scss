@@ -41,6 +41,7 @@
 
   &:hover,
   &:focus {
-    background-color: rgb(225 225 225);
+    text-underline-offset: 4px;
+    text-decoration: underline;
   }
 }

@@ -47,13 +47,11 @@ specifiers:
   eslint-plugin-react-prefer-function-component: 3.0.0
   eslint-plugin-testing-library: 5.6.0
   firebase: ^9.9.4
-  history: ^5.3.0
   husky: 8.0.1
   jsdom: 20.0.0
   lint-staged: 13.0.3
   msw: 0.44.2
   npm-run-all: 4.1.5
-  polished: ^4.2.2
   postcss: 8.4.16
   prop-types: 15.8.1
   react: 17.0.2
@@ -86,8 +84,6 @@ dependencies:
   axios: 0.27.2
   classnames: 2.3.2
   firebase: 9.9.4
-  history: 5.3.0
-  polished: 4.2.2
   prop-types: 15.8.1
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
@@ -7268,13 +7264,6 @@ packages:
     dependencies:
       find-up: 4.1.0
     dev: true
-
-  /polished/4.2.2:
-    resolution: {integrity: sha512-Sz2Lkdxz6F2Pgnpi9U5Ng/WdWAUZxmHrNPoVlm3aAemxoy2Qy7LGjQg4uf8qKelDAUW94F4np3iH2YPf2qefcQ==}
-    engines: {node: '>=10'}
-    dependencies:
-      '@babel/runtime': 7.19.0
-    dev: false
 
   /postcss-media-query-parser/0.2.3:
     resolution: {integrity: sha512-3sOlxmbKcSHMjlUXQZKQ06jOswE7oVkXPxmZdoB1r5l0q6gTFTQSHxNxOrCccElbW7dxNytifNEo8qidX2Vsig==}
