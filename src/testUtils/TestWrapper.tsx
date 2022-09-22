@@ -17,4 +17,4 @@ TestWrapper.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default TestWrapper as React.FC;
+export default TestWrapper;

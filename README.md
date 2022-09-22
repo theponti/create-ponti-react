@@ -23,7 +23,9 @@ the boilerplate for Ponti Studios web apps
   - GitHub Actions
   - *Code quality:* [CodeQL Analysis](https://securitylab.github.com/tools/codeql)
   - *Code coverage:* [Codecov](https://about.codecov.io/).
-- ***Deployment:*** [Firebase](firebase.com)
+- ***Deployment:*** 
+  - *Hosting:* [Vercel](vercel.com)
+  - *Database:* [Supabase](supabase.com)
 
 ## Scripts
 

@@ -1,7 +1,7 @@
 import { Session } from '@supabase/supabase-js';
 import { FC, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 
 import Auth from 'scenes/Auth';
 import Home from 'scenes/Home';
@@ -12,13 +12,13 @@ import { authSelectors, RootState, store } from 'services/store';
 import { supabase } from 'services/supabase';
 
 import Account from 'scenes/Account';
-import styles from './App.module.scss';
 import Header from './components/Header';
 
 type AppProps = {
   user: User
 };
 function App({ user }: AppProps) {
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [session, setSession] = useState<Session | null>(null);
   const isAuthenticated = !!session;
@@ -34,8 +34,9 @@ function App({ user }: AppProps) {
 
     supabase.auth.onAuthStateChange((_event, ses) => {
       setSession(ses);
+      navigate('/');
     });
-  }, []);
+  }, [navigate]);
 
   if (isLoading) {
     return (
@@ -44,14 +45,14 @@ function App({ user }: AppProps) {
   }
 
   return (
-    <div data-testid="app-container">
+    <div data-testid="app-container" className="text-primary h-full">
       <Header isAuthenticated={isAuthenticated} />
-      <div className={styles.wrap}>
+      <div className="mx-5">
         <Routes>
           <Route index element={<Home />} />
-          <Route path="signin" element={<Auth />} />
+          <Route path="/signin" element={<Auth user={user} />} />
           <Route path="*" element={<NotFound />} />
-          {user ? <Route path="account" element={<Account />} /> : null}
+          {user ? <Route path="/account" element={<Account />} /> : null}
         </Routes>
       </div>
     </div>

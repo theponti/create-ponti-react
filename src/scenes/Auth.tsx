@@ -1,54 +1,70 @@
-import Button from 'components/Button';
-import { useCallback, useState } from 'react';
-import { supabase } from 'services/supabase';
+import { SyntheticEvent, useCallback, useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import { useLogin } from 'services/supabase';
 
-export default function Auth() {
-  const [loading, setLoading] = useState(false);
+type AuthProps = {
+  user: User;
+};
+export default function Auth({ user }: AuthProps) {
   const [email, setEmail] = useState('');
-
-  const onHandleLogin = useCallback(async (e: any) => {
-    e.preventDefault();
-
-    try {
-      setLoading(true);
-      const { error } = await supabase.auth.signInWithOtp({ email });
-      if (error) throw error;
-      alert('Check your email for the login link!');
-    } catch (error: any) {
-      alert(error.error_description || error.message);
-    } finally {
-      setLoading(false);
-    }
-  }, [email]);
+  const EMAIL_ID = 'email';
+  const {
+    loading, isCodeSent, error, sendMagicLink,
+  } = useLogin();
   const onEmailChange = useCallback((e) => setEmail(e.target.value), []);
+  const onFormSubmit = useCallback(async (e: SyntheticEvent) => {
+    e.preventDefault();
+    sendMagicLink(email);
+  }, [email, sendMagicLink]);
+
+  if (user) {
+    return <Navigate to="/" />;
+  }
 
   return (
-    <div className="row flex-center flex">
-      <div className="col-6 form-widget" aria-live="polite">
-        <h1 className="header">Supabase + React</h1>
-        <p className="description">
+    <div className="row flex-center flex justify-items-center w-full mt-16">
+      <div className="col-6 form-widget mx-auto" aria-live="polite">
+        <h1 className="text-4xl mb-4 font-bold">
+          Sign In
+        </h1>
+
+        <p className="text mb-8">
           Sign in via magic link with your email below
         </p>
-        {loading ? (
-          'Sending magic link...'
-        ) : (
-          <form onSubmit={onHandleLogin}>
-            <label htmlFor="email">
-              Email
-              <input
-                id="email"
-                className="inputField"
-                type="email"
-                placeholder="Your email"
-                value={email}
-                onChange={onEmailChange}
-              />
-            </label>
-            <Button type="submit" variant="success">
+
+        {error ? <div>There was an issue sending your magic link.</div> : null}
+
+        {loading ? <div>Sending magic link...</div> : null}
+
+        {!loading && isCodeSent ? (
+          <div className="alert alert-success shadow-lg">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" className="text-white stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span className="text-white">Check your email for the login link!</span>
+            </div>
+          </div>
+        ) : null}
+
+        {!loading && !isCodeSent ? (
+          <form onSubmit={onFormSubmit}>
+            <div className="form-control mb-8">
+              <label htmlFor={EMAIL_ID} className="input-group">
+                <span>Email</span>
+                <input
+                  id="email"
+                  className="input input-md input-bordered w-full max-w-xs"
+                  type="email"
+                  placeholder="Your email"
+                  value={email}
+                  onChange={onEmailChange}
+                />
+              </label>
+            </div>
+            <button type="submit" className="btn">
               Send magic link
-            </Button>
+            </button>
           </form>
-        )}
+        ) : null}
       </div>
     </div>
   );

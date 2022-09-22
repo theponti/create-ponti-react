@@ -3,24 +3,54 @@
 exports[`<Header/> > should render authenticated header 1`] = `
 <div>
   <div>
-    <nav
-      class="_wrap_1r937_132"
+    <div
+      class="navbar bg-base-100"
     >
       <div
-        class="_right-nav_1r937_155"
+        class="flex-1 text-primary"
       >
-        <div>
-          Ponti UI
-        </div>
+        <div />
       </div>
       <div
-        class="_left-nav_1r937_154"
+        class="flex-none gap-2"
       >
-        <div>
-          Account
+        <div
+          class="dropdown dropdown-end"
+        >
+          <button
+            class="btn btn-ghost btn-circle avatar"
+            tabindex="0"
+            type="button"
+          >
+            <div
+              class="w-10 rounded-full"
+            >
+              <img
+                alt="avatar"
+                src="https://placeimg.com/80/80/people"
+              />
+            </div>
+          </button>
+          <ul
+            class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+            role="menu"
+            tabindex="0"
+          >
+            <li>
+              <div />
+            </li>
+            <li>
+              <div
+                role="button"
+                tabindex="0"
+              >
+                Logout
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
-    </nav>
+    </div>
   </div>
 </div>
 `;
@@ -28,28 +58,20 @@ exports[`<Header/> > should render authenticated header 1`] = `
 exports[`<Header/> > should render unauthenticated header 1`] = `
 <div>
   <div>
-    <nav
-      class="_wrap_1r937_132"
+    <div
+      class="navbar bg-base-100"
     >
       <div
-        class="_right-nav_1r937_155"
+        class="flex-1 text-primary"
       >
-        <div>
-          Ponti UI
-        </div>
+        <div />
       </div>
       <div
-        class="_left-nav_1r937_154"
+        class="flex-none gap-2"
       >
-        <button
-          class="_wrap_j0gpx_132 _text_j0gpx_158"
-          data-testid="loginButton"
-          type="button"
-        >
-          Get Started
-        </button>
+        <div />
       </div>
-    </nav>
+    </div>
   </div>
 </div>
 `;

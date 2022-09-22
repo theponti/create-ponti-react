@@ -25,6 +25,8 @@
   },
   "include": [
     "src",
+    "postcss.config.js",
+    "tailwind.config.js",
     "cypress.config.ts"
   ],
   "references": [

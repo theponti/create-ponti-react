@@ -1,38 +1,26 @@
-import { useCallback } from 'react';
 import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-import Button from 'components/Button';
 import { AppState, authSelectors } from 'services/store';
-import { supabase } from 'services/supabase';
 
 type AccountProps = {
   user?: User
 };
 function Account({ user }: AccountProps) {
-  const onLogoutClick = useCallback(async () => {
-    await supabase.auth.signOut();
-  }, []);
-
   if (!user) {
     return <Navigate to="/" />;
   }
 
   return (
     <div>
-      <h1>My account</h1>
+      <h1 className="text-3xl mb-8">My account</h1>
       <p>
         {user.name}
       </p>
       <p>
-        <b>Email: </b>
+        <span className="font-bold text-lg mr-2">Email:</span>
         {user.email}
       </p>
-      <div>
-        <Button onClick={onLogoutClick} testId="logoutButton" variant="danger">
-          Log out
-        </Button>
-      </div>
     </div>
   );
 }

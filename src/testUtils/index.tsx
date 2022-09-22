@@ -10,4 +10,5 @@ vi.mock('react-router-dom', () => ({
   BrowserRouter: ({ children }: { children: ReactNode }) => <div>{children}</div>,
   Link: ({ children }: { children: ReactNode }) => <div>{children}</div>,
   Navigate: () => <div />,
+  NavLink: () => <div />,
 }));

@@ -18,11 +18,8 @@ public/**
 # Files
 .cz.json
 .eslintignore
+postcss.config.js
+tailwind.config.js
 index.html
 LICENSE
 README.md
-
-# Firebase
-.firebaserc
-*.rules
-functions
