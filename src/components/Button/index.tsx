@@ -1,13 +1,11 @@
 import cx from 'classnames';
 import styles from './Button.module.scss';
 
-type ButtonProps = {
-  children: React.ReactNode;
-  className?: string;
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   testId?: string;
-  onClick: () => void;
+  onClick?: () => void;
   readonly variant: 'danger' | 'success' | 'text';
-};
+}
 
 function Button({
   children,
@@ -15,13 +13,15 @@ function Button({
   onClick,
   variant,
   testId,
+  type,
 }: ButtonProps) {
   return (
     <button
       className={cx(styles.wrap, { [styles[variant]]: true }, className)}
       data-testid={testId}
       onClick={onClick}
-      type="button"
+      /* eslint-disable-next-line react/button-has-type */
+      type={type || 'button'}
     >
       {children}
     </button>
@@ -29,8 +29,8 @@ function Button({
 }
 
 Button.defaultProps = {
-  className: '',
   testId: '',
+  onClick: () => {},
 };
 
 export default Button;

@@ -1,18 +1,15 @@
 import PropTypes, { InferProps } from 'prop-types';
+import { useCallback } from 'react';
+import { Navigate } from 'react-router-dom';
 
 import Button from 'components/Button';
 import Link from 'components/Link';
 import { APP_NAME, ROUTES } from 'services/constants';
 
-import { useCallback } from 'react';
-import { authenticateAsync } from 'services/auth';
-import { store } from 'services/store';
 import styles from './Header.module.scss';
 
 function Header({ isAuthenticated }: InferProps<typeof Header.propTypes>) {
-  const onLoginClick = useCallback(() => {
-    store.dispatch(authenticateAsync());
-  }, []);
+  const onLoginClick = useCallback(() => <Navigate to="/signin" />, []);
 
   return (
     <nav className={styles.wrap}>

@@ -1,9 +1,8 @@
 /* eslint-disable react/jsx-handler-names */
-import { render, screen } from '@testing-library/react';
-import { signInWithRedirect } from 'firebase/auth';
+import { render } from '@testing-library/react';
 import TestWrapper from 'testUtils/TestWrapper';
 import {
-  beforeEach, describe, expect, Mock, vi,
+  beforeEach, describe, expect, vi,
 } from 'vitest';
 import Header from './Header';
 
@@ -28,38 +27,5 @@ describe('<Header/>', () => {
       </TestWrapper>,
     );
     expect(container).toMatchSnapshot();
-  });
-
-  test('should log in user', () => {
-    render(
-      <TestWrapper>
-        <Header isAuthenticated={false} />
-      </TestWrapper>,
-    );
-    const button = screen.getByTestId('loginButton');
-    button.click();
-  });
-
-  test('should sign up user', () => {
-    render(
-      <TestWrapper>
-        <Header isAuthenticated={false} />
-      </TestWrapper>,
-    );
-    const button = screen.getByTestId('loginButton');
-    button.click();
-    expect(signInWithRedirect).toBeCalled();
-  });
-
-  test('should sign up user', () => {
-    (signInWithRedirect as Mock).mockImplementation(() => Promise.reject().catch());
-    render(
-      <TestWrapper>
-        <Header isAuthenticated={false} />
-      </TestWrapper>,
-    );
-    const button = screen.getByTestId('loginButton');
-    button.click();
-    expect(signInWithRedirect).toBeCalled();
   });
 });

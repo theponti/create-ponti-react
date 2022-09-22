@@ -3,7 +3,9 @@
 *.html
 *.scss
 *.snap
+*.sql
 *.svg
+*.toml
 *.yaml
 *.yml
 *.json
