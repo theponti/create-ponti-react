@@ -14,10 +14,7 @@ export async function getUserById(id: string) {
     .eq('id', id)
     .single();
 
-  if (error) {
-  throw error as any; // eslint-disable-line
-  }
-  return data;
+  return { data, error };
 }
 
 export async function createUser(user: User) {
@@ -26,11 +23,7 @@ export async function createUser(user: User) {
     email: user.email,
   });
 
-  if (error) {
-    throw (error as any); // eslint-disable-line
-  }
-
-  return data;
+  return { data: data ? data[0] : undefined, error };
 }
 
 export function useLogin() {
@@ -60,5 +53,36 @@ export function useLogin() {
     isCodeSent,
     loading,
     sendMagicLink,
+  };
+}
+
+export function useAccountEdit({ userId }: { userId: string }) {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const editAccount = useCallback(async ({ name }) => {
+    setLoading(true);
+
+    const updates = {
+      id: userId,
+      name,
+      updated_at: new Date(),
+    };
+
+    const { data, error: err } = await supabase.from('profiles').upsert(updates);
+
+    if (err) {
+      setError(err.message);
+    }
+
+    setLoading(false);
+
+    return data;
+  }, [userId]);
+
+  return {
+    editAccount,
+    error,
+    loading,
   };
 }

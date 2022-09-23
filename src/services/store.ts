@@ -23,6 +23,7 @@ export const authSelectors = {
   getAuthenticateError: (state: RootState) => state.auth.authenticateError,
   getIsLoadingAuth: (state: RootState) => state.auth.isLoadingAuth,
   getLogoutError: (state: RootState) => state.auth.logoutError,
+  getSession: (state: RootState) => state.auth.session,
   getUser: (state: RootState) => state.auth.user,
 };
 

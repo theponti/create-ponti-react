@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { Navigate, NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { APP_NAME } from 'services/constants';
 import { supabase } from 'services/supabase';
 
@@ -8,10 +8,11 @@ type HeaderProps = {
 };
 
 function Header({ isAuthenticated }: HeaderProps) {
+  const navigate = useNavigate();
   const onLogoutClick = useCallback(async () => {
     await supabase.auth.signOut();
-    return <Navigate to="/" />;
-  }, []);
+    navigate('/');
+  }, [navigate]);
 
   return (
     <div className="navbar bg-base-100">

@@ -1,16 +1,11 @@
 import { connect } from 'react-redux';
-import { Navigate } from 'react-router-dom';
 
 import { AppState, authSelectors } from 'services/store';
 
 type AccountProps = {
-  user?: User
+  user: User
 };
 function Account({ user }: AccountProps) {
-  if (!user) {
-    return <Navigate to="/" />;
-  }
-
   return (
     <div>
       <h1 className="text-3xl mb-8">My account</h1>
@@ -25,12 +20,8 @@ function Account({ user }: AccountProps) {
   );
 }
 
-Account.defaultProps = {
-  user: undefined,
-};
-
 const mapStateToProps = (state: AppState) => ({
-  user: authSelectors.getUser(state),
+  user: authSelectors.getUser(state) as User,
 });
 
 export default connect(mapStateToProps)(Account);

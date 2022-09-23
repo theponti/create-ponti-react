@@ -11,4 +11,5 @@ vi.mock('react-router-dom', () => ({
   Link: ({ children }: { children: ReactNode }) => <div>{children}</div>,
   Navigate: () => <div />,
   NavLink: () => <div />,
+  useNavigate: () => vi.fn(),
 }));

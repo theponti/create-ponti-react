@@ -9,6 +9,7 @@ describe('authSelectors', () => {
       auth: {
         authenticateError: true,
         isLoadingAuth: true,
+        session: null,
       },
     })).toEqual(true);
   });
@@ -17,6 +18,7 @@ describe('authSelectors', () => {
       auth: {
         authenticateError: true,
         isLoadingAuth: true,
+        session: null,
       },
     })).toEqual(true);
   });
@@ -26,6 +28,7 @@ describe('authSelectors', () => {
         authenticateError: true,
         isLoadingAuth: true,
         logoutError: true,
+        session: null,
       },
     })).toEqual(true);
   });
@@ -35,6 +38,7 @@ describe('authSelectors', () => {
         authenticateError: true,
         isLoadingAuth: true,
         logoutError: true,
+        session: null,
         user: {
           id: 'foobar',
           email: 'foobar',
@@ -52,6 +56,7 @@ describe('authSelectors', () => {
 test('should return inital state', () => {
   expect(reducer(undefined, { type: undefined })).toEqual({
     isLoadingAuth: true,
+    session: null,
   });
 });
 
@@ -63,6 +68,7 @@ test('should set user', () => {
   };
   expect(reducer(undefined, setUser(user))).toEqual({
     isLoadingAuth: false,
+    session: null,
     user,
   });
 });
@@ -70,6 +76,7 @@ test('should set user', () => {
 test('should unset user', () => {
   expect(reducer(undefined, setUser())).toEqual({
     isLoadingAuth: false,
+    session: null,
     user: undefined,
   });
 });

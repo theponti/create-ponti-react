@@ -3,9 +3,9 @@ import { Navigate } from 'react-router-dom';
 import { useLogin } from 'services/supabase';
 
 type AuthProps = {
-  user: User;
+  user?: User;
 };
-export default function Auth({ user }: AuthProps) {
+function Auth({ user }: AuthProps) {
   const [email, setEmail] = useState('');
   const EMAIL_ID = 'email';
   const {
@@ -69,3 +69,9 @@ export default function Auth({ user }: AuthProps) {
     </div>
   );
 }
+
+Auth.defaultProps = {
+  user: undefined,
+};
+
+export default Auth;

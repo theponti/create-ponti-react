@@ -5,6 +5,6 @@ declare module '@cypress/code-coverage/task' {
 
 interface User {
   email: string;
-  name: string | null;
+  name?: string;
   id: string;
 }
