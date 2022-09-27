@@ -1,50 +1,26 @@
 // Vitest Snapshot v1
 
-exports[`Account > should be able to logout 1`] = `
+exports[`Account > should render 1`] = `
 <div>
   <div>
     <div>
-      <h1>
+      <h1
+        class="text-3xl mb-8"
+      >
         My account
       </h1>
-      <p>
-        <img
-          alt="avatar"
-          src="http://someimage"
-        />
-      </p>
       <p>
         foobar
       </p>
       <p>
-        <b>
-          Email verified:
-        </b>
-      </p>
-      <p>
-        <b>
-          Email: 
-        </b>
-        example@example.com
-      </p>
-      <p>
-        <button
-          class="_wrap_j0gpx_132 _danger_j0gpx_150"
-          data-testid="logoutButton"
-          type="button"
+        <span
+          class="font-bold text-lg mr-2"
         >
-          Log out
-        </button>
+          Email:
+        </span>
+        foobar
       </p>
     </div>
-  </div>
-</div>
-`;
-
-exports[`Account > should render 1`] = `
-<div>
-  <div>
-    <div />
   </div>
 </div>
 `;
