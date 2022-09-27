@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-handler-names */
 import { render, screen } from '@testing-library/react';
-import { signInWithRedirect } from 'firebase/auth';
+import { supabase } from 'services/supabase';
 import TestWrapper from 'testUtils/TestWrapper';
 import {
   beforeEach, describe, expect, Mock, vi,
@@ -30,36 +30,27 @@ describe('<Header/>', () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('should log in user', () => {
-    render(
+  test.skip('should be able to logout', () => {
+    const { container } = render(
       <TestWrapper>
-        <Header isAuthenticated={false} />
+        <Header isAuthenticated />
       </TestWrapper>,
     );
-    const button = screen.getByTestId('loginButton');
+    const button = screen.getByTestId('logoutButton');
     button.click();
+    expect(supabase.auth.signOut).toBeCalled();
+    expect(container).toMatchSnapshot();
   });
 
-  test('should sign up user', () => {
+  test.skip('should handle logout error', () => {
+    (supabase.auth.signOut as Mock).mockImplementation(() => Promise.reject());
     render(
       <TestWrapper>
-        <Header isAuthenticated={false} />
+        <Header isAuthenticated />
       </TestWrapper>,
     );
-    const button = screen.getByTestId('loginButton');
+    const button = screen.getByTestId('logoutButton');
     button.click();
-    expect(signInWithRedirect).toBeCalled();
-  });
-
-  test('should sign up user', () => {
-    (signInWithRedirect as Mock).mockImplementation(() => Promise.reject().catch());
-    render(
-      <TestWrapper>
-        <Header isAuthenticated={false} />
-      </TestWrapper>,
-    );
-    const button = screen.getByTestId('loginButton');
-    button.click();
-    expect(signInWithRedirect).toBeCalled();
+    expect(supabase.auth.signOut).toBeCalled();
   });
 });

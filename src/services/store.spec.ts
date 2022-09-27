@@ -1,8 +1,7 @@
-import { User } from 'firebase/auth';
 import { expect, test } from 'vitest';
 
 import reducer, { setUser } from './auth';
-import { authSelectors, authStateChangeHandler } from './store';
+import { authSelectors } from './store';
 
 describe('authSelectors', () => {
   test('getAuthenticateError', () => {
@@ -10,6 +9,7 @@ describe('authSelectors', () => {
       auth: {
         authenticateError: true,
         isLoadingAuth: true,
+        session: null,
       },
     })).toEqual(true);
   });
@@ -18,6 +18,7 @@ describe('authSelectors', () => {
       auth: {
         authenticateError: true,
         isLoadingAuth: true,
+        session: null,
       },
     })).toEqual(true);
   });
@@ -27,6 +28,7 @@ describe('authSelectors', () => {
         authenticateError: true,
         isLoadingAuth: true,
         logoutError: true,
+        session: null,
       },
     })).toEqual(true);
   });
@@ -36,37 +38,37 @@ describe('authSelectors', () => {
         authenticateError: true,
         isLoadingAuth: true,
         logoutError: true,
-        user: { displayName: 'foobar' } as User,
+        session: null,
+        user: {
+          id: 'foobar',
+          email: 'foobar',
+          name: 'foobar',
+        },
       },
-    })).toEqual({ displayName: 'foobar' });
-  });
-});
-
-describe('authStateChangeHandler', () => {
-  test('should handle user auth', async () => {
-    authStateChangeHandler({} as User);
-  });
-  test('should handle no user auth', async () => {
-    authStateChangeHandler(null);
+    })).toEqual({
+      id: 'foobar',
+      email: 'foobar',
+      name: 'foobar',
+    });
   });
 });
 
 test('should return inital state', () => {
   expect(reducer(undefined, { type: undefined })).toEqual({
     isLoadingAuth: true,
+    session: null,
   });
 });
 
 test('should set user', () => {
   const user = {
-    displayName: 'displayName',
-    email: 'email',
-    emailVerified: true,
-    photoURL: 'photoURL',
-    uid: 'uid',
+    id: 'name',
+    email: 'name',
+    name: 'name',
   };
   expect(reducer(undefined, setUser(user))).toEqual({
     isLoadingAuth: false,
+    session: null,
     user,
   });
 });
@@ -74,6 +76,7 @@ test('should set user', () => {
 test('should unset user', () => {
   expect(reducer(undefined, setUser())).toEqual({
     isLoadingAuth: false,
+    session: null,
     user: undefined,
   });
 });

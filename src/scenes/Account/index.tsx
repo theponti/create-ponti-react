@@ -1,51 +1,27 @@
-import {
-  FC, useCallback,
-} from 'react';
-import { Navigate } from 'react-router-dom';
-
-import Button from 'components/Button';
 import { connect } from 'react-redux';
-import { logout, User } from 'services/auth';
-import { AppState, authSelectors, store } from 'services/store';
+
+import { AppState, authSelectors } from 'services/store';
 
 type AccountProps = {
   user: User
 };
 function Account({ user }: AccountProps) {
-  const onLogoutClick = useCallback(() => {
-    store.dispatch(logout());
-  }, []);
-
-  if (!user) {
-    return <Navigate to="/" />;
-  }
-
   return (
     <div>
-      <h1>My account</h1>
+      <h1 className="text-3xl mb-8">My account</h1>
       <p>
-        {user.photoURL ? <img src={user.photoURL} alt="avatar" /> : null}
-      </p>
-      <p>{user.displayName}</p>
-      <p>
-        <b>Email verified:</b>
-        {user.emailVerified}
+        {user.name}
       </p>
       <p>
-        <b>Email: </b>
+        <span className="font-bold text-lg mr-2">Email:</span>
         {user.email}
-      </p>
-      <p>
-        <Button onClick={onLogoutClick} testId="logoutButton" variant="danger">
-          Log out
-        </Button>
       </p>
     </div>
   );
 }
 
 const mapStateToProps = (state: AppState) => ({
-  user: authSelectors.getUser(state),
+  user: authSelectors.getUser(state) as User,
 });
 
-export default connect(mapStateToProps)(Account as FC);
+export default connect(mapStateToProps)(Account);

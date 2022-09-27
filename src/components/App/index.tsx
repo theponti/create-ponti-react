@@ -1,37 +1,65 @@
-import { FC } from 'react';
+import { Session } from '@supabase/supabase-js';
 import { connect } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
-import Account from 'scenes/Account';
+import Auth from 'scenes/Auth';
 import Home from 'scenes/Home';
 import Loading from 'scenes/Loading';
-import NotFound from 'scenes/NotFound';
-import { User } from 'services/auth';
-import { authSelectors, RootState } from 'services/store';
+import { setSession } from 'services/auth';
+import { authSelectors, RootState, store } from 'services/store';
+import { supabase } from 'services/supabase';
 
-import styles from './App.module.scss';
-import Header from './components/Header';
+import AuthRoute from 'components/AuthRoute';
+import Header from 'components/Header';
+import Account from 'scenes/Account';
+import AccountEdit from 'scenes/Account/AccountEdit';
+import NotFound from 'scenes/NotFound';
+
+supabase.auth.getSession().then(({ data }) => {
+  store.dispatch(setSession(data.session));
+});
+
+supabase.auth.onAuthStateChange((_event, currentValue) => {
+  store.dispatch(setSession(currentValue));
+});
 
 type AppProps = {
-  isLoading: boolean
-  user: User
+  isLoadingAuth: boolean
+  session: Session | null
+  user: User | undefined
 };
-function App({ user, isLoading }: AppProps) {
-  const isAuthenticated = !!user;
+function App({ isLoadingAuth, session, user }: AppProps) {
+  const isAuthenticated = !!session;
 
-  if (isLoading) {
+  if (isLoadingAuth) {
     return (
       <Loading />
     );
   }
 
   return (
-    <div data-testid="app-container">
+    <div data-testid="app-container" className="text-primary h-full">
       <Header isAuthenticated={isAuthenticated} />
-      <div className={styles.wrap}>
+      <div className="mx-5">
         <Routes>
           <Route index element={<Home />} />
-          <Route path="account" element={<Account />} />
+          <Route path="/signin" element={<Auth user={user} />} />
+          <Route
+            path="/account"
+            element={(
+              <AuthRoute>
+                <Account />
+              </AuthRoute>
+            )}
+          />
+          <Route
+            path="/account/edit"
+            element={(
+              <AuthRoute>
+                <AccountEdit />
+              </AuthRoute>
+            )}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
@@ -40,8 +68,9 @@ function App({ user, isLoading }: AppProps) {
 }
 
 const mapStateToProps = (state: RootState) => ({
-  isLoading: authSelectors.getIsLoadingAuth(state),
+  isLoadingAuth: authSelectors.getIsLoadingAuth(state),
+  session: authSelectors.getSession(state),
   user: authSelectors.getUser(state),
 });
 
-export default connect(mapStateToProps)(App as FC);
+export default connect(mapStateToProps)(App);

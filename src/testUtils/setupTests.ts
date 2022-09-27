@@ -4,22 +4,13 @@ import 'whatwg-fetch';
 
 import { DESKTOP_RESOLUTION_HEIGHT, DESKTOP_RESOLUTION_WIDTH } from 'testUtils';
 
-vi.mock('firebase/auth', () => ({
-  getAuth: vi.fn(),
-  GoogleAuthProvider: vi.fn(),
-  onAuthStateChanged: vi.fn(),
-  setPersistence: vi.fn(),
-  signInWithRedirect: vi.fn(() => ({ user: {} })),
-  signOut: vi.fn(),
-}));
-
-vi.mock('firebase/firestore', () => ({
-  addDoc: vi.fn(),
-  collection: vi.fn(),
-  getDocs: vi.fn().mockReturnValue({ docs: [] }),
-  getFirestore: vi.fn(),
-  query: vi.fn(),
-  where: vi.fn(),
+vi.mock('@supabase/supabase-js', () => ({
+  createClient: vi.fn().mockReturnValue({
+    auth: {
+      signInWithOtp: vi.fn(),
+      signOut: vi.fn(),
+    },
+  }),
 }));
 
 beforeAll(() => {
