@@ -1,10 +1,9 @@
-import { createClient } from '@supabase/supabase-js';
+import { AuthError, createClient } from '@supabase/supabase-js';
 import { useCallback, useState } from 'react';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-/* eslint-disable-next-line import/prefer-default-export */
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export async function getUserById(id: string) {
@@ -28,21 +27,29 @@ export async function createUser(user: User) {
 
 export function useLogin() {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<AuthError | null>(null);
   const [isCodeSent, setIsCodeSent] = useState(false);
 
   const sendMagicLink = useCallback(async (email) => {
     try {
       setLoading(true);
-      const { error: err } = await supabase.auth.signInWithOtp({ email });
+      // Remove error when attempting to retrieve new email
+      setError(null);
+
+      const { error: err } = await supabase.auth.signInWithOtp({
+        email,
+        options: {
+          emailRedirectTo: window.location.origin,
+        },
+      });
 
       if (err) {
-        setError(err.message);
+        throw err;
       } else {
         setIsCodeSent(true);
       }
-  } catch (err: any) { // eslint-disable-line
-      setError(err.error_description || err.message);
+    } catch (err: any) {
+      setError(err);
     } finally {
       setLoading(false);
     }
