@@ -38,9 +38,6 @@ export function useLogin() {
 
       const { error: err } = await supabase.auth.signInWithOtp({
         email,
-        options: {
-          emailRedirectTo: window.location.origin,
-        },
       });
 
       if (err) {
