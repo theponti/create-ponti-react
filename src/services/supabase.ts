@@ -28,7 +28,7 @@ export async function createUser(user: User) {
 export function useLogin() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<AuthError | null>(null);
-  const [isCodeSent, setIsCodeSent] = useState(false);
+  const [isTokenSent, setIsTokenSent] = useState(false);
 
   const sendMagicLink = useCallback(async (email) => {
     try {
@@ -43,7 +43,7 @@ export function useLogin() {
       if (err) {
         throw err;
       } else {
-        setIsCodeSent(true);
+        setIsTokenSent(true);
       }
     } catch (err: any) { // eslint-disable-line
       setError(err);
@@ -54,7 +54,7 @@ export function useLogin() {
 
   return {
     error,
-    isCodeSent,
+    isTokenSent,
     loading,
     sendMagicLink,
   };

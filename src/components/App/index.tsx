@@ -2,18 +2,17 @@ import { Session } from '@supabase/supabase-js';
 import { connect } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
-import Auth from 'scenes/Auth';
-import Home from 'scenes/Home';
-import Loading from 'scenes/Loading';
-import { setSession } from 'services/auth';
-import { authSelectors, RootState, store } from 'services/store';
-import { supabase } from 'services/supabase';
-
 import AuthRoute from 'components/AuthRoute';
 import Header from 'components/Header';
 import Account from 'scenes/Account';
 import AccountEdit from 'scenes/Account/AccountEdit';
+import Auth from 'scenes/Auth';
+import Home from 'scenes/Home';
+import Loading from 'scenes/Loading';
 import NotFound from 'scenes/NotFound';
+import { setSession } from 'services/auth';
+import { authSelectors, RootState, store } from 'services/store';
+import { supabase } from 'services/supabase';
 
 supabase.auth.getSession().then(({ data }) => {
   store.dispatch(setSession(data.session));
