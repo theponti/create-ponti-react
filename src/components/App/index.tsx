@@ -11,6 +11,7 @@ import Home from 'scenes/Home';
 import Loading from 'scenes/Loading';
 import NotFound from 'scenes/NotFound';
 import { setSession } from 'services/auth';
+import { ACCOUNT_PATH } from 'services/constants/routes';
 import { authSelectors, RootState, store } from 'services/store';
 import { supabase } from 'services/supabase';
 
@@ -44,7 +45,7 @@ function App({ isLoadingAuth, session, user }: AppProps) {
           <Route index element={<Home />} />
           <Route path="/signin" element={<Auth user={user} />} />
           <Route
-            path="/account"
+            path={ACCOUNT_PATH}
             element={(
               <AuthRoute>
                 <Account />
@@ -52,7 +53,7 @@ function App({ isLoadingAuth, session, user }: AppProps) {
             )}
           />
           <Route
-            path="/account/edit"
+            path={`${ACCOUNT_PATH}/edit`}
             element={(
               <AuthRoute>
                 <AccountEdit />

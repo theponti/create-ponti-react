@@ -10,7 +10,7 @@ const getQuery = (name: string) => (IS_CLIENT_SIDE
 
 const isIpad13 = navigator.platform === 'MacIntel' && navigator.maxTouchPoints > OUT_OF_RANGE;
 
-export const APP_NAME = 'Ponti UI';
+export const APP_NAME = 'Ponti';
 
 export const USER_AGENT = navigator.userAgent || '';
 

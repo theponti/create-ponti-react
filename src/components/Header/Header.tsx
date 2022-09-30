@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { APP_NAME } from 'services/constants';
+import { ACCOUNT_PATH } from 'services/constants/routes';
 import { supabase } from 'services/supabase';
 
 type HeaderProps = {
@@ -36,7 +37,7 @@ function Header({ isAuthenticated }: HeaderProps) {
             </button>
             <ul tabIndex={0} role="menu" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
               <li>
-                <NavLink className="justify-between" to="/account">
+                <NavLink className="justify-between" to={ACCOUNT_PATH}>
                   Account
                 </NavLink>
               </li>

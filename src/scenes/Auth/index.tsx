@@ -24,10 +24,6 @@ function Auth({ user }: AuthProps) {
           Sign In
         </h1>
 
-        <p className="text mb-8">
-          Sign in via magic link with your email below
-        </p>
-
         {error ? (
           <div className="alert alert-error shadow-lg">
             <div>

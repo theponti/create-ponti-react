@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setUser } from 'services/auth';
+import { ACCOUNT_PATH } from 'services/constants/routes';
 import { AppState, authSelectors, store } from 'services/store';
 
 import { useAccountEdit } from 'services/supabase';
@@ -16,7 +17,7 @@ function AccountEdit({ user }: { user: User }) {
     const newUser = await editAccount({ name });
     if (newUser) {
       store.dispatch(setUser(newUser[0]));
-      navigate('/account');
+      navigate(ACCOUNT_PATH);
     }
   }, [editAccount, navigate, name]);
 

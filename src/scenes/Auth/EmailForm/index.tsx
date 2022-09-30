@@ -12,8 +12,12 @@ function EmailForm({ email, sendMagicLink, setEmail }: EmailFormProps) {
     e.preventDefault();
     sendMagicLink(email);
   }, [email, sendMagicLink]);
+
   return (
     <form onSubmit={onFormSubmit}>
+      <p className="text mb-8">
+        Enter your email and we&apos;ll send you a login code.
+      </p>
       <div className="form-control mb-8">
         <label htmlFor={EMAIL_ID} className="input-group">
           <span>Email</span>
@@ -27,7 +31,7 @@ function EmailForm({ email, sendMagicLink, setEmail }: EmailFormProps) {
         </label>
       </div>
       <button type="submit" className="btn">
-        Send magic link
+        Get code
       </button>
     </form>
   );
