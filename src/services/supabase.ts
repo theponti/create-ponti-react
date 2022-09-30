@@ -48,7 +48,7 @@ export function useLogin() {
       } else {
         setIsCodeSent(true);
       }
-    } catch (err: any) {
+    } catch (err: any) { // eslint-disable-line
       setError(err);
     } finally {
       setLoading(false);
