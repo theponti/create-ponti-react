@@ -30,7 +30,7 @@ export function useLogin() {
   const [error, setError] = useState<AuthError | null>(null);
   const [isTokenSent, setIsTokenSent] = useState(false);
 
-  const sendMagicLink = useCallback(async (email) => {
+  const sendMagicLink = useCallback(async (email: string) => {
     try {
       setLoading(true);
       // Remove error when attempting to retrieve new email
@@ -65,7 +65,7 @@ export function useAccountEdit({ userId }: { userId: string }) {
   const [error, setError] = useState<string | null>(null);
 
   const editAccount = useCallback(
-    async ({ name }) => {
+    async ({ name }: { name: string | undefined }) => {
       setLoading(true);
 
       const updates = {
@@ -73,15 +73,12 @@ export function useAccountEdit({ userId }: { userId: string }) {
         updated_at: new Date(),
       };
 
-      const {
-        data,
-        error: err,
-        status,
-      } = await supabase.from("profiles").update(updates).match({
-        id: userId,
-      });
-
-      console.log({ data, err, status });
+      const { data, error: err } = await supabase
+        .from("profiles")
+        .update(updates)
+        .match({
+          id: userId,
+        });
 
       if (err) {
         setError(err.message);

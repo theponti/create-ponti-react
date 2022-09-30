@@ -81,13 +81,13 @@ export default defineConfig(({ mode }) => ({
               theme_color: "#BD34FE",
               icons: [
                 {
-                  src: "/android-chrome-192x192.png",
-                  sizes: "192x192",
+                  src: "/favicons/apple-touch-icon-152x152.png",
+                  sizes: "152x152",
                   type: "image/png",
                   purpose: "any maskable",
                 },
                 {
-                  src: "/android-chrome-512x512.png",
+                  src: "/favicons/apple-touch-icon-512x512.png",
                   sizes: "512x512",
                   type: "image/png",
                 },

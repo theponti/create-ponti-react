@@ -13,9 +13,9 @@ function AccountEdit({ user }: { user: User }) {
   const navigate = useNavigate();
   const [name, setName] = useState(user.name);
   const { editAccount, error, loading } = useAccountEdit({ userId: user.id });
-  const onSetUsername = useCallback((e) => setName(e.target.value), []);
+  const onSetUsername = useCallback((e: any) => setName(e.target.value), []);
   const onFormSubmit = useCallback(
-    async (e) => {
+    async (e: any) => {
       e.preventDefault();
       await editAccount({ name });
       store.dispatch(setUser({ ...user, name }));
