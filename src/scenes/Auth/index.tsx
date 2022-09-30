@@ -1,18 +1,16 @@
-import AlertError from 'components/Alerts/Error';
-import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
-import { useLogin } from 'services/supabase';
-import EmailForm from './EmailForm';
-import VerifyToken from './VerifyToken';
+import AlertError from "components/Alerts/Error";
+import { useState } from "react";
+import { Navigate } from "react-router-dom";
+import { useLogin } from "services/supabase";
+import EmailForm from "./EmailForm";
+import VerifyToken from "./VerifyToken";
 
 type AuthProps = {
   user?: User;
 };
 function Auth({ user }: AuthProps) {
-  const [email, setEmail] = useState('');
-  const {
-    loading, isTokenSent, error, sendMagicLink,
-  } = useLogin();
+  const [email, setEmail] = useState("");
+  const { loading, isTokenSent, error, sendMagicLink } = useLogin();
 
   if (user) {
     return <Navigate to="/" />;

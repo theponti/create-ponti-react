@@ -1,7 +1,9 @@
 /* eslint-disable no-param-reassign */
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Session } from '@supabase/supabase-js';
-import { createUser, getUserById } from 'services/supabase';
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Session } from "@supabase/supabase-js";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { createUser, getUserById, supabase } from "services/supabase";
 
 export interface AuthState {
   authenticateError?: boolean;
@@ -16,14 +18,50 @@ const initialState: AuthState = {
   session: null,
 };
 
+export function useDeleteUser() {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  async function deleteUser(id: string) {
+    try {
+      const { error: deleteUserError } = await supabase.auth.admin.deleteUser(
+        id
+      );
+
+      if (deleteUserError) {
+        throw deleteUserError;
+      }
+
+      // Delete user profile
+      const { error: profileDeleteError } = await supabase
+        .from("profiles")
+        .delete()
+        .match({ id });
+
+      if (profileDeleteError) {
+        throw new Error(profileDeleteError.message);
+      }
+
+      navigate("/");
+    } catch (err: any) { // eslint-disable-line
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return { deleteUser, error, loading };
+}
+
 export const setSession = createAsyncThunk(
-  'auth/set-session',
+  "auth/set-session",
   async (session: Session | null) => {
     if (session) {
       const { data: existingUser, error } = await getUserById(session.user.id);
 
       // Create new user if none exists
-      if (!existingUser || error?.code === 'PGRST116') {
+      if (!existingUser || error?.code === "PGRST116") {
         const { data } = await createUser({
           email: session.user.email as string,
           id: session.user.id as string,
@@ -35,17 +73,20 @@ export const setSession = createAsyncThunk(
     }
 
     return { session };
-  },
+  }
 );
 
 export const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     setUser(state, action: PayloadAction<User | undefined>) {
       state.isLoadingAuth = false;
       state.user = action.payload;
+      if (action.payload === undefined) {
+        state.session = null;
+      }
     },
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,

@@ -1,5 +1,5 @@
-import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
-import { authSlice, AuthState } from './auth';
+import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
+import { authSlice, AuthState } from "./auth";
 
 export const store = configureStore({
   reducer: {
@@ -10,10 +10,10 @@ export const store = configureStore({
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<
-ReturnType,
-RootState,
-unknown,
-Action<string>
+  ReturnType,
+  RootState,
+  unknown,
+  Action<string>
 >;
 
 // The function below is called a selector and allows us to select a value from
@@ -28,5 +28,5 @@ export const authSelectors = {
 };
 
 export interface AppState {
-  auth: AuthState
+  auth: AuthState;
 }

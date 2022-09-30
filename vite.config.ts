@@ -1,28 +1,22 @@
 /// <reference types="vitest" />
-import eslintPlugin from '@nabla/vite-plugin-eslint';
-import react from '@vitejs/plugin-react';
-import path from 'path';
-import analyze from 'rollup-plugin-analyzer';
-import { defineConfig } from 'vite';
-import { VitePWA } from 'vite-plugin-pwa';
-import tsconfigPaths from 'vite-tsconfig-paths';
+import eslintPlugin from "@nabla/vite-plugin-eslint";
+import react from "@vitejs/plugin-react";
+import path from "path";
+import analyze from "rollup-plugin-analyzer";
+import { defineConfig } from "vite";
+import { VitePWA } from "vite-plugin-pwa";
+import tsconfigPaths from "vite-tsconfig-paths";
 
-enum TestOptions {
-  TEST_THRESHOLD = 60,
-}
-
-const TEST_THRESHOLD = Number(process.env.TEST_THRESHOLD) || TestOptions.TEST_THRESHOLD;
+const TEST_THRESHOLD = 60;
 
 export default defineConfig(({ mode }) => ({
   build: {
-    outDir: 'build',
+    outDir: "build",
     rollupOptions: {
-      plugins: [
-        analyze({ summaryOnly: true }),
-      ],
+      plugins: [analyze({ summaryOnly: true })],
     },
-    sourcemap: mode !== 'production',
-    minify: 'terser',
+    sourcemap: mode !== "production",
+    minify: "terser",
     terserOptions: {
       format: {
         comments: false,
@@ -31,7 +25,7 @@ export default defineConfig(({ mode }) => ({
   },
   css: {
     modules: {
-      localsConvention: 'dashesOnly',
+      localsConvention: "dashesOnly",
     },
     preprocessorOptions: {
       scss: {
@@ -41,26 +35,26 @@ export default defineConfig(({ mode }) => ({
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      "@": path.resolve(__dirname, "src"),
     },
   },
   test: {
-    include: ['src/**/*.spec.ts', 'src/**/*.spec.tsx'],
+    include: ["src/**/*.spec.ts", "src/**/*.spec.tsx"],
     globals: true,
-    environment: 'jsdom',
-    setupFiles: 'src/testUtils/setupTests.ts',
+    environment: "jsdom",
+    setupFiles: "src/testUtils/setupTests.ts",
     clearMocks: true,
     coverage: {
       clean: true,
       enabled: true,
       exclude: [
-        'src/services/constants',
-        'src/styles',
-        'src/testUtils',
-        'src/**/*.spec.{ts,tsx}',
+        "src/services/constants",
+        "src/styles",
+        "src/testUtils",
+        "src/**/*.spec.{ts,tsx}",
       ],
-      reporter: ['lcov'],
-      reportsDirectory: 'coverage',
+      reporter: ["lcov"],
+      reportsDirectory: "coverage",
       // Thresholds for coverage results
       lines: TEST_THRESHOLD,
       functions: TEST_THRESHOLD,
@@ -71,36 +65,36 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     tsconfigPaths(),
     react(),
-    ...(mode !== 'test'
+    ...(mode !== "test"
       ? [
-        eslintPlugin(),
-        VitePWA({
-          registerType: 'autoUpdate',
-          includeAssets: [
-            'favicon.png',
-            'robots.txt',
-            'apple-touch-icon.png',
-            'icons/*.svg',
-            'fonts/*.woff2',
-          ],
-          manifest: {
-            theme_color: '#BD34FE',
-            icons: [
-              {
-                src: '/android-chrome-192x192.png',
-                sizes: '192x192',
-                type: 'image/png',
-                purpose: 'any maskable',
-              },
-              {
-                src: '/android-chrome-512x512.png',
-                sizes: '512x512',
-                type: 'image/png',
-              },
+          eslintPlugin(),
+          VitePWA({
+            registerType: "autoUpdate",
+            includeAssets: [
+              "favicon.png",
+              "robots.txt",
+              "apple-touch-icon.png",
+              "icons/*.svg",
+              "fonts/*.woff2",
             ],
-          },
-        }),
-      ]
+            manifest: {
+              theme_color: "#BD34FE",
+              icons: [
+                {
+                  src: "/android-chrome-192x192.png",
+                  sizes: "192x192",
+                  type: "image/png",
+                  purpose: "any maskable",
+                },
+                {
+                  src: "/android-chrome-512x512.png",
+                  sizes: "512x512",
+                  type: "image/png",
+                },
+              ],
+            },
+          }),
+        ]
       : []),
   ],
 }));

@@ -1,4 +1,4 @@
-import styles from './Loading.module.scss';
+import styles from "./Loading.module.scss";
 
 function Loading() {
   return (

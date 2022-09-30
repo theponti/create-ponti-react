@@ -1,13 +1,13 @@
-import { ReactNode } from 'react';
-import { connect } from 'react-redux';
-import { Navigate } from 'react-router-dom';
-import Loading from 'scenes/Loading';
-import { AppState, authSelectors } from 'services/store';
+import { ReactNode } from "react";
+import { connect } from "react-redux";
+import { Navigate } from "react-router-dom";
+import Loading from "scenes/Loading";
+import { AppState, authSelectors } from "services/store";
 
 type AuthRouteProps = {
   children: ReactNode;
   isLoadingAuth: boolean;
-  user?: User
+  user?: User;
 };
 function AuthRoute({ children, isLoadingAuth, user }: AuthRouteProps) {
   if (isLoadingAuth) {

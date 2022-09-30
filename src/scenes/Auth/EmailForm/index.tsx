@@ -1,4 +1,4 @@
-import { SyntheticEvent, useCallback } from 'react';
+import { SyntheticEvent, useCallback } from "react";
 
 type EmailFormProps = {
   email: string;
@@ -6,12 +6,18 @@ type EmailFormProps = {
   setEmail: (email: string) => void;
 };
 function EmailForm({ email, sendMagicLink, setEmail }: EmailFormProps) {
-  const EMAIL_ID = 'email';
-  const onEmailChange = useCallback((e) => setEmail(e.target.value), [setEmail]);
-  const onFormSubmit = useCallback(async (e: SyntheticEvent) => {
-    e.preventDefault();
-    sendMagicLink(email);
-  }, [email, sendMagicLink]);
+  const EMAIL_ID = "email";
+  const onEmailChange = useCallback(
+    (e) => setEmail(e.target.value),
+    [setEmail]
+  );
+  const onFormSubmit = useCallback(
+    async (e: SyntheticEvent) => {
+      e.preventDefault();
+      sendMagicLink(email);
+    },
+    [email, sendMagicLink]
+  );
 
   return (
     <form onSubmit={onFormSubmit}>

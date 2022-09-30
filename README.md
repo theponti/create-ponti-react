@@ -10,22 +10,22 @@ the boilerplate for Ponti Studios web apps
 
 ## Features
 
-- ***Language:*** [TypeScript](https://www.typescriptlang.org)
-- ***Framework:*** [React](https://reactjs.org)
-- ***Build:*** [Vite](https://vitejs.dev)
+- **_Language:_** [TypeScript](https://www.typescriptlang.org)
+- **_Framework:_** [React](https://reactjs.org)
+- **_Build:_** [Vite](https://vitejs.dev)
   - [absolute imports](https://github.com/aleclarson/vite-tsconfig-paths).
   - [PWA](https://github.com/antfu/vite-plugin-pwa) with [17/17 Lighthouse score](https://web.dev/pwa-checklist/).
 - [ESLint](https://eslint.org) and [stylelint](https://stylelint.io) on VSCode and before you commit with [Husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged).
-- ***Testing:*** 
-  - *Unit:* [Vitest](https://vitest.dev/) and [Testing Library](https://testing-library.com/). 
-  - *E2E:* [Cypress](https://www.cypress.io).
-- ***Continuous Integration***
+- **_Testing:_**
+  - _Unit:_ [Vitest](https://vitest.dev/) and [Testing Library](https://testing-library.com/).
+  - _E2E:_ [Cypress](https://www.cypress.io).
+- **_Continuous Integration_**
   - GitHub Actions
-  - *Code quality:* [CodeQL Analysis](https://securitylab.github.com/tools/codeql)
-  - *Code coverage:* [Codecov](https://about.codecov.io/).
-- ***Deployment:*** 
-  - *Hosting:* [Vercel](vercel.com)
-  - *Database:* [Supabase](supabase.com)
+  - _Code quality:_ [CodeQL Analysis](https://securitylab.github.com/tools/codeql)
+  - _Code coverage:_ [Codecov](https://about.codecov.io/).
+- **_Deployment:_**
+  - _Hosting:_ [Vercel](vercel.com)
+  - _Database:_ [Supabase](supabase.com)
 
 ## Scripts
 

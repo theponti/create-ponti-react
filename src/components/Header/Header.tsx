@@ -1,18 +1,18 @@
-import { useCallback } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { APP_NAME } from 'services/constants';
-import { ACCOUNT_PATH } from 'services/constants/routes';
-import { supabase } from 'services/supabase';
+import { useCallback } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { APP_NAME } from "services/constants";
+import { ACCOUNT_PATH } from "services/constants/routes";
+import { supabase } from "services/supabase";
 
 type HeaderProps = {
-  isAuthenticated: boolean,
+  isAuthenticated: boolean;
 };
 
 function Header({ isAuthenticated }: HeaderProps) {
   const navigate = useNavigate();
   const onLogoutClick = useCallback(async () => {
     await supabase.auth.signOut();
-    navigate('/');
+    navigate("/");
   }, [navigate]);
 
   return (
@@ -30,19 +30,32 @@ function Header({ isAuthenticated }: HeaderProps) {
         ) : null}
         {isAuthenticated ? (
           <div className="dropdown dropdown-end">
-            <button tabIndex={0} className="btn btn-ghost btn-circle avatar" type="button">
+            <button
+              tabIndex={0}
+              className="btn btn-ghost btn-circle avatar"
+              type="button"
+            >
               <div className="w-10 rounded-full">
                 <img src="https://placeimg.com/80/80/people" alt="avatar" />
               </div>
             </button>
-            <ul tabIndex={0} role="menu" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+            <ul
+              tabIndex={0}
+              role="menu"
+              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+            >
               <li>
                 <NavLink className="justify-between" to={ACCOUNT_PATH}>
                   Account
                 </NavLink>
               </li>
               <li>
-                <div role="button" onClick={onLogoutClick} onKeyDown={onLogoutClick} tabIndex={0}>
+                <div
+                  role="button"
+                  onClick={onLogoutClick}
+                  onKeyDown={onLogoutClick}
+                  tabIndex={0}
+                >
                   Logout
                 </div>
               </li>

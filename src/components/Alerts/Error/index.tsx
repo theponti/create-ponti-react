@@ -1,5 +1,5 @@
 type AlertErrorProps = {
-  message: string
+  message: string;
 };
 function AlertError({ message }: AlertErrorProps) {
   return (
