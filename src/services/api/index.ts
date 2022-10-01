@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL as string,
@@ -7,8 +7,8 @@ const api = axios.create({
 
 // Check that api is up
 api
-  .get('/')
-  .then(() => console.log('Server up'))
-  .catch(() => console.log('Server disconnected'));
+  .get("/")
+  .then(() => console.log("Server up"))
+  .catch(() => console.log("Server disconnected"));
 
 export default api;

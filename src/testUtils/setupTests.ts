@@ -1,10 +1,10 @@
-import '@testing-library/jest-dom';
-import mediaQuery from 'css-mediaquery';
-import 'whatwg-fetch';
+import "@testing-library/jest-dom";
+import mediaQuery from "css-mediaquery";
+import "whatwg-fetch";
 
-import { DESKTOP_RESOLUTION_HEIGHT, DESKTOP_RESOLUTION_WIDTH } from 'testUtils';
+import { DESKTOP_RESOLUTION_HEIGHT, DESKTOP_RESOLUTION_WIDTH } from "testUtils";
 
-vi.mock('@supabase/supabase-js', () => ({
+vi.mock("@supabase/supabase-js", () => ({
   createClient: vi.fn().mockReturnValue({
     auth: {
       signInWithOtp: vi.fn(),
@@ -14,7 +14,7 @@ vi.mock('@supabase/supabase-js', () => ({
 }));
 
 beforeAll(() => {
-  Object.defineProperty(window, 'matchMedia', {
+  Object.defineProperty(window, "matchMedia", {
     writable: true,
     value: (query: string) => {
       function matchQuery(): boolean {
@@ -27,10 +27,10 @@ beforeAll(() => {
       const listeners: (() => void)[] = [];
       const instance = {
         matches: matchQuery(),
-        addEventListener: (_: 'change', listener: () => void): void => {
+        addEventListener: (_: "change", listener: () => void): void => {
           listeners.push(listener);
         },
-        removeEventListener: (_: 'change', listener: () => void): void => {
+        removeEventListener: (_: "change", listener: () => void): void => {
           const index = listeners.indexOf(listener);
           if (index >= 0) {
             // eslint-disable-next-line @typescript-eslint/no-magic-numbers
@@ -38,7 +38,7 @@ beforeAll(() => {
           }
         },
       };
-      window.addEventListener('resize', () => {
+      window.addEventListener("resize", () => {
         const change = matchQuery();
         if (change !== instance.matches) {
           instance.matches = change;
@@ -49,17 +49,17 @@ beforeAll(() => {
       return instance;
     },
   });
-  Object.defineProperty(window, 'scrollTo', {
+  Object.defineProperty(window, "scrollTo", {
     writable: true,
     value: () => {},
   });
-  Object.defineProperty(window, 'resizeTo', {
+  Object.defineProperty(window, "resizeTo", {
     writable: true,
     value: (width: number, height: number) => {
       Object.assign(window, {
         innerWidth: width,
         innerHeight: height,
-      }).dispatchEvent(new window.Event('resize'));
+      }).dispatchEvent(new window.Event("resize"));
     },
   });
 });
