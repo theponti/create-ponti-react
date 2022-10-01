@@ -13,8 +13,6 @@ const getQuery = (name: string) =>
 const isIpad13 =
   navigator.platform === "MacIntel" && navigator.maxTouchPoints > OUT_OF_RANGE;
 
-export const APP_NAME = "Ponti";
-
 export const USER_AGENT = navigator.userAgent || "";
 
 export const IS_IPAD = navigator.platform === "iPad" || isIpad13;
