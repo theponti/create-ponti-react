@@ -1,19 +1,19 @@
-import { Session } from '@supabase/supabase-js';
-import { connect } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Session } from "@supabase/supabase-js";
+import { connect } from "react-redux";
+import { Route, Routes } from "react-router-dom";
 
-import Auth from 'scenes/Auth';
-import Home from 'scenes/Home';
-import Loading from 'scenes/Loading';
-import { setSession } from 'services/auth';
-import { authSelectors, RootState, store } from 'services/store';
-import { supabase } from 'services/supabase';
-
-import AuthRoute from 'components/AuthRoute';
-import Header from 'components/Header';
-import Account from 'scenes/Account';
-import AccountEdit from 'scenes/Account/AccountEdit';
-import NotFound from 'scenes/NotFound';
+import AuthRoute from "components/AuthRoute";
+import Header from "components/Header";
+import Account from "scenes/Account";
+import AccountEdit from "scenes/Account/AccountEdit";
+import Auth from "scenes/Auth";
+import Home from "scenes/Home";
+import Loading from "scenes/Loading";
+import NotFound from "scenes/NotFound";
+import { setSession } from "services/auth";
+import { ACCOUNT_PATH } from "services/constants/routes";
+import { authSelectors, RootState, store } from "services/store";
+import { supabase } from "services/supabase";
 
 supabase.auth.getSession().then(({ data }) => {
   store.dispatch(setSession(data.session));
@@ -24,17 +24,15 @@ supabase.auth.onAuthStateChange((_event, currentValue) => {
 });
 
 type AppProps = {
-  isLoadingAuth: boolean
-  session: Session | null
-  user: User | undefined
+  isLoadingAuth: boolean;
+  session: Session | null;
+  user: User | undefined;
 };
 function App({ isLoadingAuth, session, user }: AppProps) {
   const isAuthenticated = !!session;
 
   if (isLoadingAuth) {
-    return (
-      <Loading />
-    );
+    return <Loading />;
   }
 
   return (
@@ -45,20 +43,20 @@ function App({ isLoadingAuth, session, user }: AppProps) {
           <Route index element={<Home />} />
           <Route path="/signin" element={<Auth user={user} />} />
           <Route
-            path="/account"
-            element={(
+            path={ACCOUNT_PATH}
+            element={
               <AuthRoute>
                 <Account />
               </AuthRoute>
-            )}
+            }
           />
           <Route
-            path="/account/edit"
-            element={(
+            path={`${ACCOUNT_PATH}/edit`}
+            element={
               <AuthRoute>
                 <AccountEdit />
               </AuthRoute>
-            )}
+            }
           />
           <Route path="*" element={<NotFound />} />
         </Routes>

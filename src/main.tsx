@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
 
-import App from 'components/App';
-import { store } from 'services/store';
+import App from "components/App";
+import { store } from "services/store";
 
-import './index.scss';
+import "./index.scss";
 
 // Update Redux when Firebase Auth changes
 ReactDOM.render(
@@ -17,5 +17,5 @@ ReactDOM.render(
       </Provider>
     </Router>
   </React.StrictMode>,
-  document.getElementById('root'),
+  document.getElementById("root")
 );

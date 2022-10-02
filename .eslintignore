@@ -6,6 +6,7 @@
 *.sql
 *.svg
 *.toml
+*.webp
 *.yaml
 *.yml
 *.json
