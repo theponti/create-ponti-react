@@ -50,19 +50,19 @@ function VerifyToken({ email }: VerifyTokenProps) {
       </p>
       <div className="form-control mb-8">
         <label htmlFor={TOKEN_ID} className="input-group">
-          <span>6 digit code</span>
+          <span>Code</span>
           <input
             id={TOKEN_ID}
             className="input input-md input-bordered w-full max-w-xs"
             type="text"
-            placeholder="Token"
+            placeholder="6-digit code"
             value={token}
             onChange={onTokenChange}
           />
         </label>
       </div>
       <button className="btn" type="submit">
-        Submit token
+        Submit
       </button>
     </form>
   );

@@ -1,4 +1,4 @@
-import { AuthError, createClient } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 import { useCallback, useState } from "react";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -23,41 +23,6 @@ export async function createUser(user: User) {
   });
 
   return { data: data ? data[0] : undefined, error };
-}
-
-export function useLogin() {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<AuthError | null>(null);
-  const [isTokenSent, setIsTokenSent] = useState(false);
-
-  const sendMagicLink = useCallback(async (email: string) => {
-    try {
-      setLoading(true);
-      // Remove error when attempting to retrieve new email
-      setError(null);
-
-      const { error: err } = await supabase.auth.signInWithOtp({
-        email,
-      });
-
-      if (err) {
-        throw err;
-      } else {
-        setIsTokenSent(true);
-      }
-    } catch (err: any) { // eslint-disable-line
-      setError(err);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  return {
-    error,
-    isTokenSent,
-    loading,
-    sendMagicLink,
-  };
 }
 
 export function useAccountEdit({ userId }: { userId: string }) {
