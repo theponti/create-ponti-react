@@ -31,6 +31,13 @@ exports[`Account > should render 1`] = `
           foobar
         </p>
       </div>
+      <div
+        class="btn btn-outline mb-8 mt-8"
+        role="button"
+        tabindex="0"
+      >
+        Logout
+      </div>
       <div>
         <div>
           Edit account
