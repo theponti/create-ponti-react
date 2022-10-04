@@ -38,7 +38,7 @@ function LoadingButton({
     </svg>
   );
   const className = cx(
-    `btn btn-${type}`,
+    `btn`,
     "inline-flex",
     "items-center",
     "px-4 py-2",
@@ -48,7 +48,13 @@ function LoadingButton({
     "shadow",
     "rounded-md",
     "transition ease-in-out duration-150",
-    { "cursor-not-allowed": isLoading }
+    {
+      success: "btn-success",
+      error: "btn-error",
+    }[type],
+    {
+      "cursor-not-allowed": isLoading,
+    }
   );
 
   if (isSubmit) {
