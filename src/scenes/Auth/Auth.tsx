@@ -20,7 +20,7 @@ function Auth({ user }: AuthProps) {
 
   return (
     <div className="row flex-center flex justify-items-center w-full mt-16">
-      <div className="w-2/5 mx-auto" aria-live="polite">
+      <div className="sm:w-4/5 md:w-2/5 mx-auto" aria-live="polite">
         <h1 className="text-4xl mb-4 font-bold">Sign In</h1>
 
         {error ? <AlertError message={error.message} /> : null}

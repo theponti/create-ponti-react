@@ -3,56 +3,63 @@
 exports[`Account > should render 1`] = `
 <div>
   <div>
-    <div>
-      <h1
-        class="text-3xl mb-8"
-      >
-        My account
-      </h1>
+    <div
+      class="row flex-center flex justify-items-center w-full mt-16"
+    >
       <div
-        class="mb-8"
+        aria-live="polite"
+        class="sm:w-4/5 md:w-2/5 mx-auto"
       >
-        <p
-          class="mb-2"
+        <h1
+          class="text-3xl mb-8"
         >
-          <span
-            class="font-bold text-lg mr-2"
-          >
-            Name:
-          </span>
-          foobar
-        </p>
-        <p>
-          <span
-            class="font-bold text-lg mr-2"
-          >
-            Email:
-          </span>
-          foobar
-        </p>
-      </div>
-      <button
-        class="btn btn-outline mb-8 mt-8"
-        data-testid="logoutButton"
-        type="button"
-      >
-        Logout
-      </button>
-      <div>
+          My account
+        </h1>
         <div
-          class="btn btn-outline mr-4"
-          data-testid="editLink"
-          to="/account/edit"
+          class="mb-8"
         >
-          Edit account
+          <p
+            class="mb-2"
+          >
+            <span
+              class="font-bold text-lg mr-2"
+            >
+              Name:
+            </span>
+            foobar
+          </p>
+          <p>
+            <span
+              class="font-bold text-lg mr-2"
+            >
+              Email:
+            </span>
+            foobar
+          </p>
         </div>
         <button
-          class="btn inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md transition ease-in-out duration-150 btn-error"
-          data-testid=""
+          class="btn btn-outline mb-8 mt-8"
+          data-testid="logoutButton"
           type="button"
         >
-          Delete account
+          Logout
         </button>
+        <div>
+          <div
+            class="btn btn-outline mr-4"
+            data-testid="editLink"
+            to="/account/edit"
+          >
+            Edit account
+          </div>
+          <button
+            class="btn inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md transition ease-in-out duration-150 btn-error"
+            data-testid=""
+            type="button"
+          >
+            Delete account
+          </button>
+        </div>
       </div>
     </div>
   </div>
