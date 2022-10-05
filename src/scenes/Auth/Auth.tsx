@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Navigate } from "react-router-dom";
 
 import AlertError from "components/Alerts/Error";
+
 import EmailForm from "./EmailForm";
 import useLogin from "./useLogin";
 import VerifyToken from "./VerifyToken";
@@ -19,7 +20,7 @@ function Auth({ user }: AuthProps) {
 
   return (
     <div className="row flex-center flex justify-items-center w-full mt-16">
-      <div className="col-6 form-widget mx-auto" aria-live="polite">
+      <div className="w-2/5 mx-auto" aria-live="polite">
         <h1 className="text-4xl mb-4 font-bold">Sign In</h1>
 
         {error ? <AlertError message={error.message} /> : null}
