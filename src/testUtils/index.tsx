@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import type { ReactNode } from "react";
 
 export const DESKTOP_RESOLUTION_WIDTH = 1280;
@@ -10,8 +11,10 @@ vi.mock("react-router-dom", () => ({
   BrowserRouter: ({ children }: { children: ReactNode }) => (
     <div>{children}</div>
   ),
-  Link: ({ children }: { children: ReactNode }) => <div>{children}</div>,
+  Link: ({ children, ...props }: { children: ReactNode }) => (
+    <div {...props}>{children}</div>
+  ),
   Navigate: () => <div />,
-  NavLink: () => <div />,
+  NavLink: (props: any) => <div {...props} />,
   useNavigate: () => vi.fn(),
 }));

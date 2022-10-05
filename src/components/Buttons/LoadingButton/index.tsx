@@ -6,6 +6,7 @@ type LoadingButtonProps = {
   isLoading: boolean;
   onClick?: () => void;
   isSubmit?: boolean;
+  testId?: string;
   type: string;
 };
 function LoadingButton({
@@ -13,6 +14,7 @@ function LoadingButton({
   isLoading,
   isSubmit,
   onClick,
+  testId,
   type,
 }: LoadingButtonProps) {
   const spinner = (
@@ -59,7 +61,12 @@ function LoadingButton({
 
   if (isSubmit) {
     return (
-      <button disabled={isLoading} type="submit" className={className}>
+      <button
+        data-testid={testId}
+        disabled={isLoading}
+        type="submit"
+        className={className}
+      >
         {isLoading ? spinner : null}
         {isLoading ? "Processing..." : children}
       </button>
@@ -68,6 +75,7 @@ function LoadingButton({
 
   return (
     <button
+      data-testid={testId}
       disabled={isLoading}
       type="button"
       onClick={onClick}
@@ -82,6 +90,7 @@ function LoadingButton({
 LoadingButton.defaultProps = {
   isSubmit: false,
   onClick: () => {},
+  testId: "",
 };
 
 export default LoadingButton;

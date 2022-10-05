@@ -23,39 +23,45 @@ function Account({ user }: AccountProps) {
   }, [navigate]);
 
   return (
-    <div>
-      <h1 className="text-3xl mb-8">My account</h1>
-      {error ? <AlertError message={error} /> : null}
-      <div className="mb-8">
-        <p className="mb-2">
-          <span className="font-bold text-lg mr-2">Name:</span>
-          {user.name}
-        </p>
-        <p>
-          <span className="font-bold text-lg mr-2">Email:</span>
-          {user.email}
-        </p>
-      </div>
-      <div
-        className="btn btn-outline mb-8 mt-8"
-        role="button"
-        onClick={onLogoutClick}
-        onKeyDown={onLogoutClick}
-        tabIndex={0}
-      >
-        Logout
-      </div>
-      <div>
-        <Link className="btn btn-outline mr-4" to="/account/edit">
-          Edit account
-        </Link>
-        <LoadingButton
-          isLoading={loading}
-          onClick={onDeleteAccount}
-          type="error"
+    <div className="row flex-center flex justify-items-center w-full mt-16">
+      <div className="sm:w-4/5 md:w-2/5 mx-auto" aria-live="polite">
+        <h1 className="text-3xl mb-8">My account</h1>
+        {error ? <AlertError message={error} /> : null}
+        <div className="mb-8">
+          <p className="mb-2">
+            <span className="font-bold text-lg mr-2">Name:</span>
+            {user.name}
+          </p>
+          <p>
+            <span className="font-bold text-lg mr-2">Email:</span>
+            {user.email}
+          </p>
+        </div>
+        <button
+          className="btn btn-outline mb-8 mt-8"
+          data-testid="logoutButton"
+          type="button"
+          onClick={onLogoutClick}
+          onKeyDown={onLogoutClick}
         >
-          Delete account
-        </LoadingButton>
+          Logout
+        </button>
+        <div>
+          <Link
+            className="btn btn-outline mr-4"
+            data-testid="editLink"
+            to="/account/edit"
+          >
+            Edit account
+          </Link>
+          <LoadingButton
+            isLoading={loading}
+            onClick={onDeleteAccount}
+            type="error"
+          >
+            Delete account
+          </LoadingButton>
+        </div>
       </div>
     </div>
   );
