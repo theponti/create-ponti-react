@@ -31,19 +31,24 @@ exports[`Account > should render 1`] = `
           foobar
         </p>
       </div>
-      <div
+      <button
         class="btn btn-outline mb-8 mt-8"
-        role="button"
-        tabindex="0"
+        data-testid="logoutButton"
+        type="button"
       >
         Logout
-      </div>
+      </button>
       <div>
-        <div>
+        <div
+          class="btn btn-outline mr-4"
+          data-testid="editLink"
+          to="/account/edit"
+        >
           Edit account
         </div>
         <button
           class="btn inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md transition ease-in-out duration-150 btn-error"
+          data-testid=""
           type="button"
         >
           Delete account

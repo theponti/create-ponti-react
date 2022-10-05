@@ -36,17 +36,21 @@ function Account({ user }: AccountProps) {
           {user.email}
         </p>
       </div>
-      <div
+      <button
         className="btn btn-outline mb-8 mt-8"
-        role="button"
+        data-testid="logoutButton"
+        type="button"
         onClick={onLogoutClick}
         onKeyDown={onLogoutClick}
-        tabIndex={0}
       >
         Logout
-      </div>
+      </button>
       <div>
-        <Link className="btn btn-outline mr-4" to="/account/edit">
+        <Link
+          className="btn btn-outline mr-4"
+          data-testid="editLink"
+          to="/account/edit"
+        >
           Edit account
         </Link>
         <LoadingButton

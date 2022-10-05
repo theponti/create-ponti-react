@@ -19,11 +19,13 @@ function Header({ isAuthenticated }: HeaderProps) {
         <ul className="menu menu-horizontal p-0">
           <li>
             {!isAuthenticated ? (
-              <NavLink data-testid="loginButton" to="/signin">
+              <NavLink data-testid="loginLink" to="/signin">
                 Get Started
               </NavLink>
             ) : (
-              <NavLink to={ACCOUNT_PATH}>My Account</NavLink>
+              <NavLink data-testid="accountLink" to={ACCOUNT_PATH}>
+                My Account
+              </NavLink>
             )}
           </li>
         </ul>
