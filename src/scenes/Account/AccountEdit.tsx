@@ -26,7 +26,6 @@ function AccountEdit({ user }: { user: User }) {
 
   return (
     <div aria-live="polite">
-      <h1 className="text-4xl mb-8 mt-8 font-bold">Edit profile</h1>
       {error ? (
         <AlertError message="There was an issue updating your profile." />
       ) : null}
