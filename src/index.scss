@@ -44,3 +44,11 @@ code {
 * {
   box-sizing: border-box;
 }
+
+/***************************************
+      Daisy UI Overrides
+***************************************/
+ul.menu > li > a {
+  background: none;
+  color: white;
+}
