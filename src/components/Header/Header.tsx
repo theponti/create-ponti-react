@@ -1,3 +1,4 @@
+import GetStartedButton from "components/Buttons/GetStarted";
 import { NavLink } from "react-router-dom";
 import { ACCOUNT_PATH } from "services/constants/routes";
 
@@ -9,7 +10,7 @@ type HeaderProps = {
 
 function Header({ isAuthenticated }: HeaderProps) {
   return (
-    <div className="navbar bg-base-100 sm:mb-16">
+    <nav className="navbar bg-base-100 mb-10 sm:mb-16">
       <div className="flex-1 text-primary">
         <NavLink className="btn btn-ghost normal-case text-xl" to="/">
           <img alt="logo" src={logo} />
@@ -19,9 +20,7 @@ function Header({ isAuthenticated }: HeaderProps) {
         <ul className="menu menu-horizontal p-0">
           <li>
             {!isAuthenticated ? (
-              <NavLink data-testid="loginLink" to="/signin">
-                Get Started
-              </NavLink>
+              <GetStartedButton />
             ) : (
               <NavLink data-testid="accountLink" to={ACCOUNT_PATH}>
                 My Account
@@ -30,7 +29,7 @@ function Header({ isAuthenticated }: HeaderProps) {
           </li>
         </ul>
       </div>
-    </div>
+    </nav>
   );
 }
 
