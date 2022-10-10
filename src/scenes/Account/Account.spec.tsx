@@ -5,7 +5,7 @@ import { authSelectors } from "services/store";
 import { supabase } from "services/supabase";
 import TestWrapper from "testUtils/TestWrapper";
 
-import Account from ".";
+import Account from "./Account";
 
 const user = {
   id: "foobar",

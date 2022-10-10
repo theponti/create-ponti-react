@@ -5,7 +5,6 @@ import { Route, Routes } from "react-router-dom";
 import AuthRoute from "components/AuthRoute";
 import Header from "components/Header";
 import Account from "scenes/Account";
-import AccountEdit from "scenes/Account/AccountEdit";
 import Auth from "scenes/Auth";
 import Home from "scenes/Home";
 import Loading from "scenes/Loading";
@@ -47,14 +46,6 @@ function App({ isLoadingAuth, session, user }: AppProps) {
             element={
               <AuthRoute>
                 <Account />
-              </AuthRoute>
-            }
-          />
-          <Route
-            path={`${ACCOUNT_PATH}/edit`}
-            element={
-              <AuthRoute>
-                <AccountEdit />
               </AuthRoute>
             }
           />
