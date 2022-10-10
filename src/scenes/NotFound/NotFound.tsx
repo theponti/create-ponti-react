@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import notFoundDoodle from "./not-found.svg";
 
 function NotFound() {
@@ -15,7 +16,10 @@ function NotFound() {
             src={notFoundDoodle}
           />
         </div>
-        <p className="mt-4 text-gray-500">We can&apos;t find that page.</p>
+        <p className="mt-4 text-gray-500 mb-8">We can&apos;t find that page.</p>
+        <NavLink className="btn btn-outline btn-md" to="">
+          Go back home
+        </NavLink>
       </div>
     </div>
   );
