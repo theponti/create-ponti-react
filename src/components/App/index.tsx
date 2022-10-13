@@ -6,6 +6,7 @@ import AuthRoute from "components/AuthRoute";
 import Header from "components/Header";
 import Account from "scenes/Account";
 import Auth from "scenes/Auth";
+import Dashboard from "scenes/Dashboard";
 import Home from "scenes/Home";
 import Loading from "scenes/Loading";
 import NotFound from "scenes/NotFound";
@@ -37,21 +38,19 @@ function App({ isLoadingAuth, session, user }: AppProps) {
   return (
     <div data-testid="app-container" className="text-primary h-full">
       <Header isAuthenticated={isAuthenticated} />
-      <div className="mx-5">
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="/signin" element={<Auth user={user} />} />
-          <Route
-            path={ACCOUNT_PATH}
-            element={
-              <AuthRoute>
-                <Account />
-              </AuthRoute>
-            }
-          />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route index element={user ? <Dashboard /> : <Home />} />
+        <Route path="/signin" element={<Auth user={user} />} />
+        <Route
+          path={ACCOUNT_PATH}
+          element={
+            <AuthRoute>
+              <Account />
+            </AuthRoute>
+          }
+        />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 }
