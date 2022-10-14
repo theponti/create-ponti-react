@@ -7,33 +7,37 @@ exports[`<Header/> > should render authenticated header 1`] = `
       class="navbar bg-base-100 mb-10 sm:mb-16"
     >
       <div
-        class="flex-1 text-primary"
+        class="w-full xl:w-4/5 md:mx-auto"
       >
         <div
-          class="btn btn-ghost normal-case text-xl"
-          to="/"
+          class="flex-1 text-primary"
         >
-          <img
-            alt="logo"
-            src="/src/components/Header/logo.webp"
-          />
+          <div
+            class="btn btn-ghost normal-case text-xl"
+            to="/"
+          >
+            <img
+              alt="logo"
+              src="/src/components/Header/logo.webp"
+            />
+          </div>
         </div>
-      </div>
-      <div
-        class="flex-none gap-2"
-      >
-        <ul
-          class="menu menu-horizontal p-0"
+        <div
+          class="flex-none gap-2"
         >
-          <li>
-            <div
-              data-testid="accountLink"
-              to="/account"
-            >
-              My Account
-            </div>
-          </li>
-        </ul>
+          <ul
+            class="menu menu-horizontal p-0"
+          >
+            <li>
+              <div
+                data-testid="accountLink"
+                to="/account"
+              >
+                My Account
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   </div>
@@ -47,38 +51,42 @@ exports[`<Header/> > should render unauthenticated header 1`] = `
       class="navbar bg-base-100 mb-10 sm:mb-16"
     >
       <div
-        class="flex-1 text-primary"
+        class="w-full xl:w-4/5 md:mx-auto"
       >
         <div
-          class="btn btn-ghost normal-case text-xl"
-          to="/"
+          class="flex-1 text-primary"
         >
-          <img
-            alt="logo"
-            src="/src/components/Header/logo.webp"
-          />
+          <div
+            class="btn btn-ghost normal-case text-xl"
+            to="/"
+          >
+            <img
+              alt="logo"
+              src="/src/components/Header/logo.webp"
+            />
+          </div>
         </div>
-      </div>
-      <div
-        class="flex-none gap-2"
-      >
-        <ul
-          class="menu menu-horizontal p-0"
+        <div
+          class="flex-none gap-2"
         >
-          <li>
-            <div
-              class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
-              data-testid="loginLink"
-              to="/signin"
-            >
-              <span
-                class="relative text-base font-semibold text-gray-700"
+          <ul
+            class="menu menu-horizontal p-0"
+          >
+            <li>
+              <div
+                class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+                data-testid="loginLink"
+                to="/signin"
               >
-                Get started
-              </span>
-            </div>
-          </li>
-        </ul>
+                <span
+                  class="relative text-base font-semibold text-gray-700"
+                >
+                  Get started
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   </div>

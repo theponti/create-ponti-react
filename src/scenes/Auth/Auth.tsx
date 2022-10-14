@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom";
 
 import AlertError from "components/Alerts/Error";
 
+import PageWrap from "components/PageWrap";
 import EmailForm from "./EmailForm";
 import useLogin from "./useLogin";
 import VerifyToken from "./VerifyToken";
@@ -19,8 +20,8 @@ function Auth({ user }: AuthProps) {
   }
 
   return (
-    <div className="row flex-center flex justify-items-center w-full mt-16">
-      <div className="sm:w-4/5 md:w-2/5 mx-auto" aria-live="polite">
+    <PageWrap>
+      <div aria-live="polite">
         <h1 className="text-4xl mb-4 font-bold">Sign In</h1>
 
         {error ? <AlertError message={error.message} /> : null}
@@ -37,7 +38,7 @@ function Auth({ user }: AuthProps) {
           />
         ) : null}
       </div>
-    </div>
+    </PageWrap>
   );
 }
 

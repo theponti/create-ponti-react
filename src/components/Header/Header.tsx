@@ -11,23 +11,25 @@ type HeaderProps = {
 function Header({ isAuthenticated }: HeaderProps) {
   return (
     <nav className="navbar bg-base-100 mb-10 sm:mb-16">
-      <div className="flex-1 text-primary">
-        <NavLink className="btn btn-ghost normal-case text-xl" to="/">
-          <img alt="logo" src={logo} />
-        </NavLink>
-      </div>
-      <div className="flex-none gap-2">
-        <ul className="menu menu-horizontal p-0">
-          <li>
-            {!isAuthenticated ? (
-              <GetStartedButton />
-            ) : (
-              <NavLink data-testid="accountLink" to={ACCOUNT_PATH}>
-                My Account
-              </NavLink>
-            )}
-          </li>
-        </ul>
+      <div className="w-full xl:w-4/5 md:mx-auto">
+        <div className="flex-1 text-primary">
+          <NavLink className="btn btn-ghost normal-case text-xl" to="/">
+            <img alt="logo" src={logo} />
+          </NavLink>
+        </div>
+        <div className="flex-none gap-2">
+          <ul className="menu menu-horizontal p-0">
+            <li>
+              {!isAuthenticated ? (
+                <GetStartedButton />
+              ) : (
+                <NavLink data-testid="accountLink" to={ACCOUNT_PATH}>
+                  My Account
+                </NavLink>
+              )}
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );

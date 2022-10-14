@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { FormEvent, useCallback, useState } from "react";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -13,9 +13,12 @@ function AccountEdit({ user }: { user: User }) {
   const navigate = useNavigate();
   const [name, setName] = useState(user.name);
   const { editAccount, error, loading } = useAccountEdit({ userId: user.id });
-  const onSetUsername = useCallback((e: any) => setName(e.target.value), []);
+  const onSetUsername = useCallback(
+    (e: FormEvent<HTMLInputElement>) => setName(e.currentTarget.value),
+    []
+  );
   const onFormSubmit = useCallback(
-    async (e: any) => {
+    async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       await editAccount({ name });
       store.dispatch(setUser({ ...user, name }));
