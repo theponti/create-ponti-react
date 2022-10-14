@@ -9,7 +9,7 @@
 		"commit": "cz",
 		"db:restart": "supabase stop && supabase start",
 		"dev": "vite --open",
-    "format": "prettier --write \"src/*.{ts,tsx,js,md}\"",
+		"format": "prettier --write \"src/*.{ts,tsx,js,md}\"",
 		"ops:eslint": "TIMING=1 eslint src",
 		"prepare": "husky install",
 		"preview": "vite preview",
@@ -42,7 +42,7 @@
 		"react": "17.0.2",
 		"react-dom": "17.0.2",
 		"react-redux": "^8.0.2",
-		"react-router-dom": "6.4.0"
+		"react-router-dom": "6.4.2"
 	},
 	"devDependencies": {
 		"@babel/core": "7.18.10",
