@@ -7,7 +7,7 @@ exports[`<Header/> > should render authenticated header 1`] = `
       class="navbar bg-base-100 mb-10 sm:mb-16"
     >
       <div
-        class="w-full md:w-4/5 xl:w-3/5 md:mx-auto"
+        class="w-full xl:w-4/5 md:mx-auto"
       >
         <div
           class="flex-1 text-primary"
@@ -51,7 +51,7 @@ exports[`<Header/> > should render unauthenticated header 1`] = `
       class="navbar bg-base-100 mb-10 sm:mb-16"
     >
       <div
-        class="w-full md:w-4/5 xl:w-3/5 md:mx-auto"
+        class="w-full xl:w-4/5 md:mx-auto"
       >
         <div
           class="flex-1 text-primary"

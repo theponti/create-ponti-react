@@ -11,7 +11,7 @@ type HeaderProps = {
 function Header({ isAuthenticated }: HeaderProps) {
   return (
     <nav className="navbar bg-base-100 mb-10 sm:mb-16">
-      <div className="w-full md:w-4/5 xl:w-3/5 md:mx-auto">
+      <div className="w-full xl:w-4/5 md:mx-auto">
         <div className="flex-1 text-primary">
           <NavLink className="btn btn-ghost normal-case text-xl" to="/">
             <img alt="logo" src={logo} />
