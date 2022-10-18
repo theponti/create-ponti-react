@@ -36,6 +36,6 @@ the boilerplate for Ponti Studios web apps
 - `pnpm test:ci` - run all unit and integration tests in CI mode.
 - `pnpm test:e2e` - run all e2e tests with the Cypress Test Runner.
 - `pnpm test:e2e:headless` - run all e2e tests headlessly.
-- `pnpm format` - format all files with ESLint.
-- `pnpm lint` - runs TypeScript, ESLint and Stylelint.
+- `pnpm run-eslint` - Fix all files with ESLint.
+- `pnpm lint` - Runs TypeScript, ESLint and Stylelint.
 - `pnpm validate` - runs `lint`, `test:ci` and `test:e2e:ci`.

@@ -1,6 +1,11 @@
 {
   "css.validate": false,
   "diffEditor.ignoreTrimWhitespace": false,
+  "eslint.alwaysShowStatus": true,
+  // Turn off js, jsx, and tsx formatting since this is handled by ESLint
+  "[javascript, javascriptreact, typescriptreact]": {
+    "editor.formatOnSave": false
+  },
   "editor.codeActionsOnSave": [
     "source.addMissingImports",
     "source.fixAll",
@@ -9,7 +14,6 @@
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
-  "eslint.packageManager": "yarn",
   "files.exclude": {},
   "files.watcherExclude": {
     "**/build": true
@@ -23,8 +27,5 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   }
 }
