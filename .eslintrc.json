@@ -33,33 +33,10 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
-    "no-dupe-else-if": "error",
-    "no-promise-executor-return": "error",
-    "no-unreachable-loop": "error",
-    "no-useless-backreference": "error",
-    "require-atomic-updates": "error",
+    "capitalized-comments": "error",
     "default-case-last": "error",
     "grouped-accessor-pairs": "error",
-    "no-constructor-return": "error",
-    "no-implicit-coercion": "error",
-    "prefer-regex-literals": "error",
-    "capitalized-comments": "error",
-    "no-restricted-syntax": [
-      "error",
-      {
-        "selector": "ForInStatement",
-        "message": "for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array."
-      },
-      {
-        "selector": "LabeledStatement",
-        "message": "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand."
-      },
-      {
-        "selector": "WithStatement",
-        "message": "`with` is disallowed in strict mode because it makes code impossible to predict and optimize."
-      }
-    ],
-    "no-void": "off",
+    // -------------- @typescript-eslint ----------------------- //
     "@typescript-eslint/padding-line-between-statements": "off",
     "@typescript-eslint/prefer-enum-initializers": "off",
     "@typescript-eslint/prefer-readonly-parameter-types": "off",
@@ -103,6 +80,29 @@
         ]
       }
     ],
+    "no-constructor-return": "error",
+    "no-dupe-else-if": "error",
+    "no-implicit-coercion": "error",
+    "no-promise-executor-return": "error",
+    "no-unreachable-loop": "error",
+    "no-useless-backreference": "error",
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "ForInStatement",
+        "message": "for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array."
+      },
+      {
+        "selector": "LabeledStatement",
+        "message": "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand."
+      },
+      {
+        "selector": "WithStatement",
+        "message": "`with` is disallowed in strict mode because it makes code impossible to predict and optimize."
+      }
+    ],
+    "no-void": "off",
+    "prefer-regex-literals": "error",
     "react/no-did-update-set-state": "off",
     "react/no-find-dom-node": "off",
     "react/no-is-mounted": "off",
@@ -153,7 +153,8 @@
     ],
     "react/jsx-no-constructed-context-values": "error",
     "react/jsx-no-script-url": "error",
-    "react/jsx-no-useless-fragment": "error"
+    "react/jsx-no-useless-fragment": "error",
+    "require-atomic-updates": "error"
   },
   "settings": {
     "react": {

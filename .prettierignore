@@ -1,1 +1,7 @@
 dist
+
+# Ignoring since these are handled by ESLint
+*.js
+*.jsx
+*.ts
+*.tsx
