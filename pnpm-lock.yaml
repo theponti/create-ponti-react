@@ -5,6 +5,7 @@ specifiers:
   '@babel/preset-env': 7.18.10
   '@cypress/code-coverage': 3.10.0
   '@nabla/vite-plugin-eslint': 1.4.1
+  '@prisma/client': ^4.5.0
   '@reduxjs/toolkit': ^1.8.4
   '@supabase/supabase-js': 2.0.0-rc.10
   '@tailwindcss/typography': ^0.5.7
@@ -54,6 +55,7 @@ specifiers:
   npm-run-all: 4.1.5
   postcss: 8.4.16
   prettier: ^2.7.1
+  prisma: 4.5.0
   prop-types: 15.8.1
   react: 17.0.2
   react-dom: 17.0.2
@@ -77,6 +79,7 @@ specifiers:
   workbox-window: 6.5.4
 
 dependencies:
+  '@prisma/client': 4.5.0_prisma@4.5.0
   '@reduxjs/toolkit': 1.8.5_thunyjspsylz6iliyoygaytnnq
   '@supabase/supabase-js': 2.0.0-rc.10
   '@testing-library/react': 12.1.5_sfoxds7t5ydpegc3knd667wn6m
@@ -137,6 +140,7 @@ devDependencies:
   npm-run-all: 4.1.5
   postcss: 8.4.16
   prettier: 2.7.1
+  prisma: 4.5.0
   rollup: 2.77.3
   rollup-plugin-analyzer: 4.0.0
   rollup-plugin-istanbul: 3.0.0_rollup@2.77.3
@@ -1719,6 +1723,28 @@ packages:
   /@polka/url/1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
+
+  /@prisma/client/4.5.0_prisma@4.5.0:
+    resolution: {integrity: sha512-B2cV0OPI1smhdYUxsJoLYQLoMlLH06MUxgFUWQnHodGMX98VRVXKmQE/9OcrTNkqtke5RC+YU24Szxd04tZA2g==}
+    engines: {node: '>=14.17'}
+    requiresBuild: true
+    peerDependencies:
+      prisma: '*'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+    dependencies:
+      '@prisma/engines-version': 4.5.0-43.0362da9eebca54d94c8ef5edd3b2e90af99ba452
+      prisma: 4.5.0
+    dev: false
+
+  /@prisma/engines-version/4.5.0-43.0362da9eebca54d94c8ef5edd3b2e90af99ba452:
+    resolution: {integrity: sha512-o7LyVx8PPJBLrEzLl6lpxxk2D5VnlM4Fwmrbq0NoT6pr5aa1OuHD9ZG+WJY6TlR/iD9bhmo2LNcxddCMr5Rv2A==}
+    dev: false
+
+  /@prisma/engines/4.5.0:
+    resolution: {integrity: sha512-4t9ir2SbQQr/wMCNU4YpHWp5hU14J2m3wHUZnGJPpmBF8YtkisxyVyQsKd1e6FyLTaGq8LOLhm6VLYHKqKNm+g==}
+    requiresBuild: true
 
   /@reduxjs/toolkit/1.8.5_thunyjspsylz6iliyoygaytnnq:
     resolution: {integrity: sha512-f4D5EXO7A7Xq35T0zRbWq5kJQyXzzscnHKmjnu2+37B3rwHU6mX9PYlbfXdnxcY6P/7zfmjhgan0Z+yuOfeBmA==}
@@ -6843,6 +6869,14 @@ packages:
       ansi-styles: 5.2.0
       react-is: 18.2.0
     dev: true
+
+  /prisma/4.5.0:
+    resolution: {integrity: sha512-9Aeg4qiKlv9Wsjz4NO8k2CzRzlvS3A4FYVJ5+28sBBZ0eEwbiVOE/Jj7v6rZC1tFW2s4GSICQOAyuOjc6WsNew==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@prisma/engines': 4.5.0
 
   /process-on-spawn/1.0.0:
     resolution: {integrity: sha512-1WsPDsUSMmZH5LeMLegqkPDrsGgsWwk1Exipy2hvB0o/F0ASzbpIctSCcZIK1ykJvtTJULEH+20WOFjMvGnCTg==}

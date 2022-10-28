@@ -21,7 +21,7 @@ const initialState: AuthState = {
 export function useDeleteUser() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   async function deleteUser(id: string) {
     try {
@@ -30,7 +30,8 @@ export function useDeleteUser() {
       );
 
       if (deleteUserError) {
-        throw deleteUserError;
+        setError(deleteUserError.message);
+        return;
       }
 
       // Delete user profile
@@ -40,7 +41,8 @@ export function useDeleteUser() {
         .match({ id });
 
       if (profileDeleteError) {
-        throw new Error(profileDeleteError.message);
+        setError(profileDeleteError.message);
+        return
       }
 
       navigate("/");
