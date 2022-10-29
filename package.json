@@ -14,7 +14,7 @@
     "preview": "vite preview",
     "preview:test": "start-server-and-test preview http://localhost:4173",
     "refresh-deps": "rm pnpm-lock.yaml && rm -rf node_modules && pnpm install",
-    "run-eslint": "eslint --cache --fix --ignore-path .gitignore --ext .ts,.tsx,.js,.md src",
+    "run-eslint": "eslint --cache --fix --ignore-path .gitignore --ext .ts,.tsx,.js,.md src && prettier -w src",
     "run-eslint:time": "TIMING=1 eslint src",
     "run-stylelint": "stylelint --cache --fix --ignore-path .gitignore \"**/*.scss\"",
     "run-tsc": "tsc",
@@ -112,10 +112,10 @@
     ]
   },
   "lint-staged": {
-    "*": "eslint --fix src",
+    "*": "prettier -w",
     "*.css": "stylelint --cache --fix",
     "*.{ts,tsx}": [
-      "eslint --cache --fix",
+      "pnpm run-eslint",
       "vitest related --run --coverage=false"
     ]
   },

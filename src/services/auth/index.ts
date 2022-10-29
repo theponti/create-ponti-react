@@ -42,11 +42,11 @@ export function useDeleteUser() {
 
       if (profileDeleteError) {
         setError(profileDeleteError.message);
-        return
+        return;
       }
 
       navigate("/");
-    } catch (err: any) { // eslint-disable-line
+    } catch (err: any) {
       setError(err.message);
     } finally {
       setLoading(false);
