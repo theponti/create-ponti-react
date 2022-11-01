@@ -1,7 +1,7 @@
-# PONTI UI
+# 👩🏻‍💻 create-ponti-react 👩🏻‍💻
 
-[![github test](https://github.com/theponti/ponti-ui/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/theponti/ponti-ui/actions/workflows/test.yml)
-[![codecov](https://codecov.io/gh/theponti/ponti-ui/branch/main/graph/badge.svg?token=365VCE2C4N)](https://codecov.io/gh/theponti/ponti-ui)
+[![github test](https://github.com/theponti/create-ponti-react/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/theponti/create-ponti-react/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/theponti/create-ponti-react/branch/main/graph/badge.svg?token=365VCE2C4N)](https://codecov.io/gh/theponti/create-ponti-react)
 [![cypress](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/ssvz5r&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/ssvz5r/runs)  
 [![commitizen](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/wtchnm/Vitamin/blob/main/LICENSE)
