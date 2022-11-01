@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { SyntheticEvent, useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "services/supabase";
 
@@ -9,9 +9,12 @@ function VerifyToken({ email }: VerifyTokenProps) {
   const TOKEN_ID = "token";
   const navigate = useNavigate();
   const [token, setToken] = useState("");
-  const onTokenChange = useCallback((e) => setToken(e.target.value), []);
+  const onTokenChange = useCallback(
+    (e: SyntheticEvent<HTMLInputElement>) => setToken(e.currentTarget.value),
+    []
+  );
   const onVerifyToken = useCallback(
-    async (e) => {
+    async (e: SyntheticEvent<HTMLFormElement>) => {
       e.preventDefault();
 
       await supabase.auth.verifyOtp({

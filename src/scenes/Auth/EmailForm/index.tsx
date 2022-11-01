@@ -8,11 +8,11 @@ type EmailFormProps = {
 function EmailForm({ email, sendMagicLink, setEmail }: EmailFormProps) {
   const EMAIL_ID = "email";
   const onEmailChange = useCallback(
-    (e) => setEmail(e.target.value),
+    (e: SyntheticEvent<HTMLInputElement>) => setEmail(e.currentTarget.value),
     [setEmail]
   );
   const onFormSubmit = useCallback(
-    async (e: SyntheticEvent) => {
+    async (e: SyntheticEvent<HTMLFormElement>) => {
       e.preventDefault();
       sendMagicLink(email);
     },
@@ -29,6 +29,7 @@ function EmailForm({ email, sendMagicLink, setEmail }: EmailFormProps) {
           <span>Email</span>
           <input
             className="input input-md input-bordered w-full max-w-xs"
+            id={EMAIL_ID}
             type="email"
             placeholder="Your email"
             value={email}

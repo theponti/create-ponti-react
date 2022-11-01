@@ -19,6 +19,7 @@ public/**
 # Files
 .cz.json
 .eslintignore
+schema.prisma
 postcss.config.js
 tailwind.config.js
 index.html

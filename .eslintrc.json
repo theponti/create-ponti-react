@@ -8,15 +8,10 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2020,
-    "project": [
-      "tsconfig.json"
-    ],
+    "project": ["tsconfig.json"],
     "sourceType": "module"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "react-prefer-function-component"
-  ],
+  "plugins": ["@typescript-eslint", "react-prefer-function-component"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -45,9 +40,7 @@
       "error",
       {
         "ignoreEnums": true,
-        "ignore": [
-          0
-        ],
+        "ignore": [0],
         "enforceConst": true,
         "detectObjects": true
       }
@@ -78,6 +71,12 @@
           "**/*.spec.{ts,tsx}",
           "cypress.config.ts"
         ]
+      }
+    ],
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "assert": "htmlFor"
       }
     ],
     "no-constructor-return": "error",
@@ -163,32 +162,20 @@
   },
   "overrides": [
     {
-      "files": [
-        "src/**/*.ts?(x)"
-      ],
+      "files": ["src/**/*.ts?(x)"],
       "parserOptions": {
-        "project": [
-          "./tsconfig.json"
-        ]
+        "project": ["./tsconfig.json"]
       }
     },
     {
-      "files": [
-        "vite.config.ts"
-      ],
+      "files": ["vite.config.ts"],
       "parserOptions": {
-        "project": [
-          "./tsconfig.node.json"
-        ]
+        "project": ["./tsconfig.node.json"]
       }
     },
     {
-      "files": [
-        "**/*.spec.ts?(x)"
-      ],
-      "extends": [
-        "plugin:testing-library/react"
-      ],
+      "files": ["**/*.spec.ts?(x)"],
+      "extends": ["plugin:testing-library/react"],
       "rules": {
         "testing-library/no-await-sync-events": "error",
         "testing-library/no-manual-cleanup": "error",

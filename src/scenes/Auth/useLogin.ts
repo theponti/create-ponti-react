@@ -22,7 +22,7 @@ export default function useLogin() {
       } else {
         setIsTokenSent(true);
       }
-    } catch (err: any) { // eslint-disable-line
+    } catch (err: any) {
       setError(err);
     } finally {
       setLoading(false);
